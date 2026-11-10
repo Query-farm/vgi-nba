@@ -777,7 +777,8 @@ LEADER_COLS = [
     col("team_abbreviation", TEXT, "Current or last team abbreviation.", "TEAM"),
     col("games_played", INT, "Games played (count).", "GP"),
     col("minutes", FLOAT, "Minutes under the requested per_mode.", "MIN"),
-    *_shooting(FLOAT, " (count, scaled per per_mode)"),
+    # leagueleaders publishes no personal-foul column.
+    *(c for c in _shooting(FLOAT, " (count, scaled per per_mode)") if c.name != "personal_fouls"),
     col("efficiency", FLOAT, "NBA efficiency rating (EFF index).", "EFF"),
 ]
 LEADER_SCHEMA = schema_of(LEADER_COLS)
@@ -811,8 +812,8 @@ GAME_LOG_COLS = [
         "Player identifier; NULL on team rows.",
         lambda r: to_id(r.get("PLAYER_ID", r.get("Player_ID"))),
     ),
-    col("player_name", TEXT, "Player name; NULL on team rows and in single-player logs.", "PLAYER_NAME"),
-    col("team_id", BIG, "Team identifier, when published.", "TEAM_ID"),
+    col("player_name", TEXT, "Player name; NULL on team rows.", "PLAYER_NAME"),
+    col("team_id", BIG, "Team identifier (numeric ID).", "TEAM_ID"),
     col(
         "team_abbreviation",
         TEXT,
@@ -828,6 +829,11 @@ GAME_LOG_COLS = [
     col("plus_minus", INT, "Point differential while on the floor (points).", "PLUS_MINUS"),
 ]
 GAME_LOG_SCHEMA = schema_of(GAME_LOG_COLS)
+
+# playergamelog carries no player name or team ID: the caller already knows the
+# player, and the team is the first abbreviation of the matchup.
+PLAYER_GAME_LOG_COLS = [c for c in GAME_LOG_COLS if c.name not in ("player_name", "team_id")]
+PLAYER_GAME_LOG_SCHEMA = schema_of(PLAYER_GAME_LOG_COLS)
 
 
 # --------------------------------------------------------------------------- career
@@ -907,7 +913,6 @@ BOX_SCORE_COLS = [
     col(
         "is_starter", BOOL, "Whether the player started the game.", lambda r: bool(to_text(r.get("position")))
     ),
-    col("jersey_number", TEXT, "Jersey number as text.", "jerseyNum"),
     col("status_comment", TEXT, "Inactive or did-not-play reason, when given.", "comment"),
     col("minutes", TEXT, "Minutes played display, MM:SS.", "minutes"),
     col(

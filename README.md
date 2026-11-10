@@ -4,10 +4,10 @@
   </a>
 </p>
 
-<h1 align="center">vgi-nba</h1>
+<h1 align="center">NBA, WNBA &amp; G League Standings, Scores &amp; Stats in DuckDB</h1>
 
 <p align="center">
-  NBA, WNBA, and NBA G League standings, scores, box scores, and statistics as ordinary DuckDB tables.<br>
+  <strong>vgi-nba</strong>: NBA, WNBA, and NBA G League standings, scores, box scores, and statistics as ordinary DuckDB tables.<br>
   A <strong>read-only</strong> <a href="https://query.farm/vgi/">VGI</a> worker, built by <a href="https://query.farm">🚜 Query.Farm</a>
 </p>
 
@@ -109,7 +109,8 @@ ORDER BY playoff_rank;
 ```
 
 `win_percentage` and the games-back columns are exact decimals. `season_type`
-accepts `Regular Season`, `Playoffs`, `Pre Season`, or `PlayIn`.
+accepts `Regular Season`, `Pre Season`, or `PlayIn`; the Stats API publishes no
+playoff standings.
 
 ### Scores, schedules, and games
 

@@ -34,6 +34,7 @@ from vgi_nba.leagues import GLEAGUE, NBA, WNBA, League, eastern_today
 from vgi_nba.meta import result_columns_schema
 
 SEASON_TYPES = ("Regular Season", "Playoffs", "Pre Season", "PlayIn")
+STANDINGS_SEASON_TYPES = ("Regular Season", "Pre Season", "PlayIn")
 CAREER_SEASON_TYPES = ("Regular Season", "Playoffs")
 PER_MODES = ("PerGame", "Totals", "Per36", "Per100Possessions")
 LEADER_PER_MODES = ("PerGame", "Totals", "Per48")
@@ -108,6 +109,13 @@ def _choice(name: str, default: str, choices: Sequence[str], doc: str) -> Arg:
 _SEASON_TYPE = _choice(
     "season_type", "Regular Season", SEASON_TYPES, "Regular Season, Playoffs, Pre Season, or PlayIn."
 )
+# leaguestandingsv3 answers an empty result set for Playoffs in every league.
+_STANDINGS_SEASON_TYPE = _choice(
+    "season_type",
+    "Regular Season",
+    STANDINGS_SEASON_TYPES,
+    "Regular Season, Pre Season, or PlayIn; the league publishes no playoff standings.",
+)
 _CAREER_SEASON_TYPE = _choice(
     "season_type", "Regular Season", CAREER_SEASON_TYPES, "Regular Season or Playoffs totals."
 )
@@ -129,6 +137,14 @@ class SeasonArgs:
 
     season: Annotated[int | None, _season_arg()]
     season_type: Annotated[str, _SEASON_TYPE]
+
+
+@dataclass(kw_only=True)
+class StandingsArgs:
+    """Season and a standings season type."""
+
+    season: Annotated[int | None, _season_arg()]
+    season_type: Annotated[str, _STANDINGS_SEASON_TYPE]
 
 
 @dataclass(kw_only=True)
@@ -557,7 +573,7 @@ SPECS: list[Spec] = [
         description="{league} standings by season and season type",
         category="standings",
         cols=s.STANDINGS_COLS,
-        args=SeasonArgs,
+        args=StandingsArgs,
         fetch=lambda league, a: fetch_standings(league, a.season, a.season_type),
         doc_llm=(
             "One row per {league} team with conference and division rank, wins, losses, exact "
@@ -814,7 +830,7 @@ SPECS: list[Spec] = [
         title="{league} Player Game Log",
         description="One {league} player's game-by-game lines for a season",
         category="player-detail",
-        cols=s.GAME_LOG_COLS,
+        cols=s.PLAYER_GAME_LOG_COLS,
         args=PlayerSeasonArgs,
         fetch=lambda league, a: fetch_player_game_log(league, a.player_id, a.season, a.season_type),
         doc_llm=(

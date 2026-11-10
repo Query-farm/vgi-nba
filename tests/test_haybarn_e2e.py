@@ -107,5 +107,8 @@ def test_haybarn_attaches_and_queries_every_current_table() -> None:
     assert all(count > 0 for count in counts_by_table.values()), counts_by_table
     assert counts_by_table["nba_current_teams"] == 3
     assert counts_by_table["wnba_current_players"] == 3
-    assert "box_points" in result.stdout
-    assert "plays" in result.stdout
+    box_points = int(lines[lines.index("box_points") + 1])
+    plays = int(lines[lines.index("plays") + 1])
+    # The trimmed fixtures keep 73 player points and 7 play-by-play actions.
+    assert box_points == 73
+    assert plays == 7

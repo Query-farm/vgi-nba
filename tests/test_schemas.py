@@ -165,7 +165,7 @@ def test_game_logs_parse_matchups_and_dates() -> None:
     assert first["player_id"] is None
     player_rows = _batch(result_set(load("leaguegamelog_player.json")), s.GAME_LOG_COLS).to_pylist()
     assert player_rows[0]["player_id"] and player_rows[0]["player_name"]
-    single = _batch(result_set(load("playergamelog.json")), s.GAME_LOG_COLS).to_pylist()
+    single = _batch(result_set(load("playergamelog.json")), s.PLAYER_GAME_LOG_COLS).to_pylist()
     assert single[0]["game_date"] == date(2026, 4, 12)
     assert single[0]["player_id"] == 2544
     assert single[0]["team_abbreviation"] == "LAL"

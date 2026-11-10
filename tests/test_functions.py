@@ -46,11 +46,11 @@ def test_every_spec_returns_typed_rows(league, recorded) -> None:
 
 
 def test_requests_carry_league_and_season_keys(recorded) -> None:
-    f.fetch_standings(WNBA, 2025, "Playoffs")
+    f.fetch_standings(WNBA, 2025, "Pre Season")
     f.fetch_standings(NBA, 2025, "Regular Season")
     wnba, nba = recorded
     assert wnba.url.params["LeagueID"] == "10" and wnba.url.params["Season"] == "2025"
-    assert wnba.url.params["SeasonType"] == "Playoffs"
+    assert wnba.url.params["SeasonType"] == "Pre Season"
     assert nba.url.params["Season"] == "2025-26"
 
 
@@ -144,3 +144,35 @@ def test_backing_scan_examples_call_the_scan() -> None:
     surface = f.SURFACES["nba"]
     for spec, cls in surface.tables:
         assert all(f"nba.nba.{spec.name}()" in example.sql for example in cls.Meta.examples)
+
+
+# Columns that are legitimately NULL in every recorded fixture row: in-game or
+# postseason fields on a finished regular-season slate, team rows of a team-mode
+# game log, and fields the WNBA (no divisions) or the trimmed fixtures leave empty.
+_LIVE_ONLY = {"game_clock", "series_text", "game_label"}
+_EXPECTED_EMPTY: dict[str, set[str]] = {
+    "standings": {"eliminated_from_playoffs", "division", "division_rank"},
+    "all_current_standings": {"eliminated_from_playoffs", "division", "division_rank"},
+    "scoreboard": _LIVE_ONLY,
+    "all_current_scoreboard": _LIVE_ONLY,
+    "league_game_log": {"player_id", "player_name"},
+}
+
+
+@pytest.mark.parametrize("league", LEAGUES, ids=lambda league: league.schema)
+def test_no_column_is_always_null(league, recorded) -> None:
+    empty: dict[str, list[str]] = {}
+    for spec in [*f.SPECS, *f.CURRENT_SPECS]:
+        if league.schema not in spec.leagues:
+            continue
+        rows, _ttl = spec.fetch(league, _Args(game_id=_game(league)))
+        batch = s.batch(f._dedupe(rows, spec), spec.cols, s.schema_of(spec.cols))
+        nulls = [
+            name
+            for name in batch.schema.names
+            if batch.column(name).null_count == batch.num_rows
+            and name not in _EXPECTED_EMPTY.get(spec.name, ())
+        ]
+        if nulls:
+            empty[spec.name] = nulls
+    assert empty == {}, empty
