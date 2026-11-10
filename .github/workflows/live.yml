@@ -23,8 +23,37 @@ env:
   UV_NO_SOURCES: "1"
 
 jobs:
+  reachability:
+    name: stats.nba.com reachability
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      reachable: ${{ steps.probe.outputs.reachable }}
+    steps:
+      # GitHub-hosted runner address ranges are commonly stalled by the NBA's
+      # Akamai edge. Rather than fail every scheduled run for an environmental
+      # reason, probe once and skip the live jobs with a visible warning.
+      - id: probe
+        run: |
+          if curl --fail --silent --show-error --max-time 20 \
+              --header 'User-Agent: vgi-nba-ci (Query-farm/vgi-nba)' \
+              --header 'Accept-Encoding: gzip, deflate' \
+              --header 'Connection: keep-alive' \
+              --header 'Referer: https://www.nba.com/' \
+              --header 'Accept: application/json, text/plain, */*' \
+              --header 'Accept-Language: en-US,en;q=0.9' \
+              'https://stats.nba.com/stats/leaguestandingsv3?LeagueID=00&Season=2025-26&SeasonType=Regular%20Season' \
+              --output /dev/null; then
+            echo "reachable=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "reachable=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Live checks skipped::stats.nba.com did not respond from this runner (Akamai blocks many cloud/CI address ranges). Run 'uv run pytest -m live' and the executing vgi-lint from an unblocked network."
+          fi
+
   live:
     name: Live API tests
+    needs: reachability
+    if: needs.reachability.outputs.reachable == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -39,7 +68,8 @@ jobs:
 
   behavioural:
     name: vgi-lint (executes every example)
-    needs: live
+    needs: [reachability, live]
+    if: needs.reachability.outputs.reachable == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
