@@ -1,0 +1,27 @@
+location = "uv run --project . vgi-nba"
+select = ["ALL"]
+fail_on = "warning"
+
+ignore = [
+  { code = "VGI311", kind = "tooling-bug", reason = """\
+Each parameterless all_* scan is exposed as its corresponding current_* (or franchise_history) \
+table. The rule only recognizes matching names, but a function and table cannot share a name \
+inside one schema; the deliberate all_* names avoid those collisions.\
+""" },
+]
+
+# Agent tasks exercise the public tables, which invoke these all_* backing scans.
+# Teaching agents to call implementation functions directly would undermine the
+# table abstraction; the hermetic Haybarn E2E test separately executes every scan.
+[per_object."nba.*.all_*"]
+ignore = [{ code = "VGI520", kind = "domain-exemption", reason = "Backing scan of a current_* table; agent tasks query the table, and the Haybarn E2E test executes every scan." }]
+
+# The wnba and gleague schemas are generated from the same specs, fetchers, and
+# Arrow schemas as the nba schema, differing only in the Stats API LeagueID. The
+# agent suite covers every nba object plus representative WNBA and G League tasks;
+# repeating each task per league would triple a suite that exercises one code path.
+[per_object."nba.wnba.*"]
+ignore = [{ code = "VGI520", kind = "domain-exemption", reason = "Generated from the same spec as its nba-schema counterpart (only LeagueID differs), which agent tasks exercise." }]
+
+[per_object."nba.gleague.*"]
+ignore = [{ code = "VGI520", kind = "domain-exemption", reason = "Generated from the same spec as its nba-schema counterpart (only LeagueID differs), which agent tasks exercise." }]

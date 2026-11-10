@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # A clean clone must resolve only published dependencies. This keeps a future
+  # local path source from silently making CI pass.
+  UV_NO_SOURCES: "1"
+
+jobs:
+  check:
+    name: Lint, offline tests, package
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.13"
+          enable-cache: true
+      - run: uv lock --check
+      - run: uv sync --no-sources
+      - name: Ruff (lint)
+        run: uv run --no-sources ruff check .
+      - name: Ruff (format)
+        run: uv run --no-sources ruff format --check .
+      - name: Offline tests
+        run: uv run --no-sources pytest --cov=vgi_nba --cov-report=term-missing --cov-fail-under=80
+      - name: Standalone entry points
+        run: |
+          uv run --no-project nba_worker.py --help > /dev/null
+          VGI_SIGNING_KEY=ci-signing-key VGI_BEARER_TOKENS=ci-token=ci \
+            uv run --no-project serve.py --help > /dev/null
+      - run: uv build
+      - run: uvx twine check dist/*
+      - name: Smoke-test the built wheel in isolation
+        run: uvx --refresh --from ./dist/*.whl vgi-nba --help
+      - name: Audit runtime dependencies
+        run: |
+          uv export --no-dev --no-emit-project --format requirements-txt \
+            --output-file "${RUNNER_TEMP}/requirements-audit.txt" > /dev/null
+          uvx --python 3.13 pip-audit --requirement "${RUNNER_TEMP}/requirements-audit.txt"
+
+  catalog:
+    name: Catalog metadata (vgi-lint, structural)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.13"
+          enable-cache: true
+      - run: uv lock --check
+      - run: uv sync --no-sources
+      # Structural checks are network-free. Executable examples run on the
+      # serialized live schedule so pull requests do not consume NBA Stats API capacity.
+      - name: vgi-lint (structural)
+        run: >
+          uvx --no-sources --from vgi-lint-check==2.2.0 vgi-lint lint "uv run --no-sources nba_worker.py"
+          --no-execute --no-check-links --audit-waivers --fail-on warning
+
+  container:
+    name: Container smoke test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Build image
+        run: docker build --tag vgi-nba:ci .
+      - name: Smoke-test health endpoint
+        run: |
+          docker run --detach --name vgi-nba-ci --publish 8000:8000 \
+            --env VGI_SIGNING_KEY=ci-signing-key \
+            --env VGI_BEARER_TOKENS=ci-token=ci \
+            vgi-nba:ci
+          trap 'docker rm --force vgi-nba-ci' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8000/health; then exit 0; fi
+            sleep 1
+          done
+          docker logs vgi-nba-ci
+          exit 1

@@ -1,0 +1,97 @@
+# Live-data tasks are graded with check_sql: the upstream values move daily,
+# so an exact reference result-set comparison cannot pass. Each assertion checks
+# that the objects a correct answer needs return the facts the prompt asks for.
+tasks:
+  - name: conference_leaders
+    check_sql: >-
+      SELECT count(*) = 2
+      FROM nba.nba.current_standings s
+      JOIN nba.nba.current_team_stats t USING (team_id)
+      WHERE s.playoff_rank = 1 AND t.points > 0
+    success_criteria: >-
+      Uses current_standings for playoff_rank 1 in each conference and current_team_stats for points.
+
+  - name: western_standings_2025
+    check_sql: >-
+      SELECT count(*) = 15
+      FROM nba.nba.standings(season := 2025) s
+      JOIN nba.nba.franchise_history f ON f.team_id = s.team_id AND f.row_kind = 'franchise'
+      WHERE s.conference = 'West'
+    success_criteria: >-
+      Uses standings(season := 2025) filtered to the West, ordered by playoff_rank, joined to the
+      franchise summary rows of franchise_history for league_titles.
+
+  - name: todays_slate
+    check_sql: >-
+      SELECT count(c.game_id) = count(*)
+      FROM nba.nba.current_scoreboard b
+      LEFT JOIN nba.nba.current_schedule c USING (game_id)
+    success_criteria: >-
+      Joins current_scoreboard to current_schedule on game_id for arena_name.
+
+  - name: tallest_laker
+    check_sql: >-
+      SELECT max(r.height_inches) >= 80
+      FROM nba.nba.current_teams t, nba.nba.team_roster(1610612747) r
+      WHERE t.team_abbreviation = 'LAL' AND t.team_id = r.team_id
+    success_criteria: >-
+      Finds the Lakers team_id in current_teams and orders team_roster by height_inches.
+
+  - name: lebron_career
+    check_sql: >-
+      SELECT (SELECT count(*) FROM nba.nba.players(only_current := false) WHERE player_id = 2544) = 1
+        AND (SELECT points FROM nba.nba.player_career_totals(2544)) >= 43000
+        AND (SELECT max(points) FROM nba.nba.player_career_stats(2544)) = 2478
+    success_criteria: >-
+      Looks up player_id 2544, reads player_career_totals, and finds 2005-06 as the top season in
+      player_career_stats without double-counting multi-team total rows.
+
+  - name: game_top_scorer
+    check_sql: >-
+      SELECT (SELECT sum(points) FROM nba.nba.box_score('0022600201'))
+           = (SELECT home_score + away_score FROM nba.nba.scoreboard(DATE '2026-11-08')
+              WHERE game_id = '0022600201')
+        AND (SELECT count(*) FROM nba.nba.play_by_play('0022600201')
+             WHERE period = 4 AND player_name = 'Murphy III' AND shot_result = 'Made') > 0
+    success_criteria: >-
+      Reports the Clippers' 139-123 win, Trey Murphy III's 26 points from box_score, and his
+      fourth-quarter points from play_by_play.
+
+  - name: assist_leaders_efficiency
+    check_sql: >-
+      SELECT count(*) = 5
+      FROM (SELECT player_id FROM nba.nba.league_leaders(season := 2025, stat_category := 'AST')
+            ORDER BY rank LIMIT 5) l
+      JOIN nba.nba.advanced_player_stats(season := 2025) a USING (player_id)
+      JOIN nba.nba.player_stats(season := 2025) p USING (player_id)
+    success_criteria: >-
+      Uses league_leaders with stat_category AST, then advanced_player_stats for true shooting and
+      player_stats for turnovers per game.
+
+  - name: best_net_rating_team
+    check_sql: >-
+      SELECT count(*) = 1
+      FROM (SELECT team_id FROM nba.nba.advanced_team_stats(season := 2025)
+            ORDER BY net_rating DESC LIMIT 1) b
+      JOIN nba.nba.team_stats(season := 2025) USING (team_id)
+      JOIN (SELECT team_id, max(points) AS best FROM nba.nba.league_game_log(season := 2025)
+            GROUP BY team_id) g USING (team_id)
+    success_criteria: >-
+      Ranks advanced_team_stats by net_rating, reads three_point_percentage from team_stats, and finds
+      the top points game in league_game_log.
+
+  - name: lebron_this_season
+    check_sql: >-
+      SELECT (SELECT count(*) FROM nba.nba.player_game_log(2544)) > 0
+        AND (SELECT count(*) FROM nba.nba.current_players WHERE player_id = 2544) = 1
+        AND (SELECT max(points) FROM nba.nba.current_player_stats WHERE games_played >= 5) > 0
+    success_criteria: >-
+      Uses player_game_log(2544) for the game-by-game points and current_player_stats for the leader.
+
+  - name: wnba_scoring_title
+    check_sql: >-
+      SELECT player_name = 'A''ja Wilson'
+      FROM nba.wnba.league_leaders(season := 2025)
+      WHERE rank = 1
+    success_criteria: >-
+      Uses the wnba schema's league_leaders for 2025 and reports A'ja Wilson at 23.4 points per game.

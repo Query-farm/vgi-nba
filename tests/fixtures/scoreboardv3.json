@@ -1,0 +1,292 @@
+{
+ "meta": {
+  "version": 1,
+  "request": "http://nba.cloud/league/00/2026/11/09/scoreboard?Format=json",
+  "time": "2026-11-10T12:30:34.3034Z"
+ },
+ "scoreboard": {
+  "gameDate": "2026-11-09",
+  "leagueId": "00",
+  "leagueName": "National Basketball Association",
+  "games": [
+   {
+    "gameId": "0022600203",
+    "gameCode": "20261109/LALATL",
+    "gameStatus": 3,
+    "gameStatusText": "Final",
+    "period": 4,
+    "gameClock": "",
+    "gameTimeUTC": "2026-11-10T00:00:00Z",
+    "gameEt": "2026-11-09T19:00:00Z",
+    "regulationPeriods": 4,
+    "seriesGameNumber": "",
+    "gameLabel": "",
+    "gameSubLabel": "",
+    "seriesText": "",
+    "ifNecessary": false,
+    "seriesConference": "",
+    "poRoundDesc": "",
+    "gameSubtype": "",
+    "isNeutral": false,
+    "gameLeaders": {
+     "homeLeaders": {
+      "personId": 1629638,
+      "name": "Nickeil Alexander-Walker",
+      "playerSlug": "nickeil-alexander-walker",
+      "jerseyNum": "7",
+      "position": "G",
+      "teamTricode": "ATL",
+      "points": 20,
+      "rebounds": 4,
+      "assists": 4
+     },
+     "awayLeaders": {
+      "personId": 1629029,
+      "name": "Luka Dončić",
+      "playerSlug": "luka-dončić",
+      "jerseyNum": "77",
+      "position": "F-G",
+      "teamTricode": "LAL",
+      "points": 32,
+      "rebounds": 8,
+      "assists": 10
+     }
+    },
+    "teamLeaders": {
+     "homeLeaders": {
+      "personId": 1630552,
+      "name": "Jalen Johnson",
+      "playerSlug": "jalen-johnson",
+      "jerseyNum": "1",
+      "position": "F",
+      "teamTricode": "ATL",
+      "points": 19.2,
+      "rebounds": 8.6,
+      "assists": 7.2
+     },
+     "awayLeaders": {
+      "personId": 1629029,
+      "name": "Luka Dončić",
+      "playerSlug": "luka-dončić",
+      "jerseyNum": "77",
+      "position": "F-G",
+      "teamTricode": "LAL",
+      "points": 39.3,
+      "rebounds": 7.8,
+      "assists": 7.9
+     },
+     "seasonLeadersFlag": 0
+    },
+    "homeTeam": {
+     "teamId": 1610612737,
+     "teamName": "Hawks",
+     "teamCity": "Atlanta",
+     "teamTricode": "ATL",
+     "teamSlug": "hawks",
+     "wins": 7,
+     "losses": 5,
+     "score": 114,
+     "seed": 0,
+     "inBonus": null,
+     "timeoutsRemaining": 1,
+     "periods": [
+      {
+       "period": 1,
+       "periodType": "REGULAR",
+       "score": 22
+      },
+      {
+       "period": 2,
+       "periodType": "REGULAR",
+       "score": 35
+      },
+      {
+       "period": 3,
+       "periodType": "REGULAR",
+       "score": 33
+      },
+      {
+       "period": 4,
+       "periodType": "REGULAR",
+       "score": 24
+      }
+     ]
+    },
+    "awayTeam": {
+     "teamId": 1610612747,
+     "teamName": "Lakers",
+     "teamCity": "Los Angeles",
+     "teamTricode": "LAL",
+     "teamSlug": "lakers",
+     "wins": 10,
+     "losses": 2,
+     "score": 124,
+     "seed": 0,
+     "inBonus": null,
+     "timeoutsRemaining": 1,
+     "periods": [
+      {
+       "period": 1,
+       "periodType": "REGULAR",
+       "score": 31
+      },
+      {
+       "period": 2,
+       "periodType": "REGULAR",
+       "score": 37
+      },
+      {
+       "period": 3,
+       "periodType": "REGULAR",
+       "score": 27
+      },
+      {
+       "period": 4,
+       "periodType": "REGULAR",
+       "score": 29
+      }
+     ]
+    }
+   },
+   {
+    "gameId": "0022600204",
+    "gameCode": "20261109/CLECHA",
+    "gameStatus": 3,
+    "gameStatusText": "Final",
+    "period": 4,
+    "gameClock": "",
+    "gameTimeUTC": "2026-11-10T00:00:00Z",
+    "gameEt": "2026-11-09T19:00:00Z",
+    "regulationPeriods": 4,
+    "seriesGameNumber": "",
+    "gameLabel": "",
+    "gameSubLabel": "",
+    "seriesText": "",
+    "ifNecessary": false,
+    "seriesConference": "",
+    "poRoundDesc": "",
+    "gameSubtype": "",
+    "isNeutral": false,
+    "gameLeaders": {
+     "homeLeaders": {
+      "personId": 1629675,
+      "name": "Naz Reid",
+      "playerSlug": "naz-reid",
+      "jerseyNum": "0",
+      "position": "C-F",
+      "teamTricode": "CHA",
+      "points": 25,
+      "rebounds": 13,
+      "assists": 4
+     },
+     "awayLeaders": {
+      "personId": 1643509,
+      "name": "Meleek Thomas",
+      "playerSlug": "meleek-thomas",
+      "jerseyNum": "15",
+      "position": "G",
+      "teamTricode": "CLE",
+      "points": 18,
+      "rebounds": 3,
+      "assists": 3
+     }
+    },
+    "teamLeaders": {
+     "homeLeaders": {
+      "personId": 1629675,
+      "name": "Naz Reid",
+      "playerSlug": "naz-reid",
+      "jerseyNum": "0",
+      "position": "C-F",
+      "teamTricode": "CHA",
+      "points": 17.4,
+      "rebounds": 8.5,
+      "assists": 2.1
+     },
+     "awayLeaders": {
+      "personId": 1628378,
+      "name": "Donovan Mitchell",
+      "playerSlug": "donovan-mitchell",
+      "jerseyNum": "45",
+      "position": "G",
+      "teamTricode": "CLE",
+      "points": 22.8,
+      "rebounds": 4.8,
+      "assists": 5.5
+     },
+     "seasonLeadersFlag": 0
+    },
+    "homeTeam": {
+     "teamId": 1610612766,
+     "teamName": "Hornets",
+     "teamCity": "Charlotte",
+     "teamTricode": "CHA",
+     "teamSlug": "hornets",
+     "wins": 4,
+     "losses": 7,
+     "score": 124,
+     "seed": 0,
+     "inBonus": null,
+     "timeoutsRemaining": 1,
+     "periods": [
+      {
+       "period": 1,
+       "periodType": "REGULAR",
+       "score": 29
+      },
+      {
+       "period": 2,
+       "periodType": "REGULAR",
+       "score": 40
+      },
+      {
+       "period": 3,
+       "periodType": "REGULAR",
+       "score": 38
+      },
+      {
+       "period": 4,
+       "periodType": "REGULAR",
+       "score": 17
+      }
+     ]
+    },
+    "awayTeam": {
+     "teamId": 1610612739,
+     "teamName": "Cavaliers",
+     "teamCity": "Cleveland",
+     "teamTricode": "CLE",
+     "teamSlug": "cavaliers",
+     "wins": 5,
+     "losses": 6,
+     "score": 112,
+     "seed": 0,
+     "inBonus": null,
+     "timeoutsRemaining": 0,
+     "periods": [
+      {
+       "period": 1,
+       "periodType": "REGULAR",
+       "score": 28
+      },
+      {
+       "period": 2,
+       "periodType": "REGULAR",
+       "score": 25
+      },
+      {
+       "period": 3,
+       "periodType": "REGULAR",
+       "score": 27
+      },
+      {
+       "period": 4,
+       "periodType": "REGULAR",
+       "score": 32
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,56 @@
+name: Live
+
+# Network-backed checks are intentionally kept off pull requests. Runs are
+# serialized because every test and executable catalog example shares the
+# NBA's public Stats API capacity. The NBA's Akamai edge stalls requests from
+# some cloud address ranges; if this runner is blocked the worker fails fast
+# with a "did not respond" error rather than hanging. The hermetic fixture
+# tests in CI do not depend on network access.
+
+on:
+  schedule:
+    - cron: "41 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nba-live
+  cancel-in-progress: false
+
+env:
+  UV_NO_SOURCES: "1"
+
+jobs:
+  live:
+    name: Live API tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.13"
+          enable-cache: true
+      - run: uv lock --check
+      - run: uv sync --no-sources
+      - run: uv run --no-sources pytest -q -m live
+
+  behavioural:
+    name: vgi-lint (executes every example)
+    needs: live
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.13"
+          enable-cache: true
+      - run: uv lock --check
+      - run: uv sync --no-sources
+      - name: vgi-lint (structural + behavioural)
+        run: >
+          uvx --no-sources --from vgi-lint-check==2.2.0 vgi-lint lint "uv run --no-sources nba_worker.py"
+          --execute-concurrency 1 --no-check-links --audit-waivers --fail-on error

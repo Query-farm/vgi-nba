@@ -1,0 +1,211 @@
+{
+ "meta": {
+  "version": 1,
+  "request": "http://nba.cloud/league/00/2026-27/scheduleleaguev2?Format=json",
+  "time": "2026-11-10T12:35:33.3533Z"
+ },
+ "leagueSchedule": {
+  "seasonYear": "2026-27",
+  "leagueId": "00",
+  "gameDates": [
+   {
+    "gameDate": "10/03/2026 00:00:00",
+    "games": [
+     {
+      "gameId": "0012600009",
+      "gameCode": "20261003/MIATOR",
+      "gameStatus": 3,
+      "gameStatusText": "Final",
+      "gameSequence": 1,
+      "gameDateEst": "2026-10-03T00:00:00Z",
+      "gameTimeEst": "1900-01-01T19:00:00Z",
+      "gameDateTimeEst": "2026-10-03T19:00:00Z",
+      "gameDateUTC": "2026-10-03T04:00:00Z",
+      "gameTimeUTC": "1900-01-01T23:00:00Z",
+      "gameDateTimeUTC": "2026-10-03T23:00:00Z",
+      "awayTeamTime": "2026-10-03T19:00:00Z",
+      "homeTeamTime": "2026-10-03T19:00:00Z",
+      "day": "Sat",
+      "monthNum": 10,
+      "weekNumber": 0,
+      "weekName": "",
+      "ifNecessary": "false",
+      "seriesGameNumber": "",
+      "gameLabel": "Preseason",
+      "gameSubLabel": "NBA Canada Game",
+      "seriesText": "",
+      "arenaName": "Videotron Centre",
+      "arenaState": "QC",
+      "arenaCity": "Quebec City",
+      "postponedStatus": "N",
+      "gameSubtype": "",
+      "isNeutral": false,
+      "homeTeam": {
+       "teamId": 1610612761,
+       "teamName": "Raptors",
+       "teamCity": "Toronto",
+       "teamTricode": "TOR",
+       "teamSlug": "raptors",
+       "wins": 0,
+       "losses": 1,
+       "score": 105,
+       "seed": 0
+      },
+      "awayTeam": {
+       "teamId": 1610612748,
+       "teamName": "Heat",
+       "teamCity": "Miami",
+       "teamTricode": "MIA",
+       "teamSlug": "heat",
+       "wins": 1,
+       "losses": 0,
+       "score": 129,
+       "seed": 0
+      },
+      "pointsLeaders": [
+       {
+        "personId": 1629628,
+        "firstName": "RJ",
+        "lastName": "Barrett",
+        "teamId": 1610612761,
+        "teamCity": "Toronto",
+        "teamName": "Raptors",
+        "teamTricode": "TOR",
+        "points": 15.0
+       },
+       {
+        "personId": 1642615,
+        "firstName": "Tyreke",
+        "lastName": "Key",
+        "teamId": 1610612761,
+        "teamCity": "Toronto",
+        "teamName": "Raptors",
+        "teamTricode": "TOR",
+        "points": 15.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "gameDate": "11/16/2026 00:00:00",
+    "games": [
+     {
+      "gameId": "0022600245",
+      "gameCode": "20261116/ORLBOS",
+      "gameStatus": 1,
+      "gameStatusText": "7:00 pm ET",
+      "gameSequence": 1,
+      "gameDateEst": "2026-11-16T00:00:00Z",
+      "gameTimeEst": "1900-01-01T19:00:00Z",
+      "gameDateTimeEst": "2026-11-16T19:00:00Z",
+      "gameDateUTC": "2026-11-16T05:00:00Z",
+      "gameTimeUTC": "1900-01-01T00:00:00Z",
+      "gameDateTimeUTC": "2026-11-17T00:00:00Z",
+      "awayTeamTime": "2026-11-16T19:00:00Z",
+      "homeTeamTime": "2026-11-16T19:00:00Z",
+      "day": "Mon",
+      "monthNum": 11,
+      "weekNumber": 5,
+      "weekName": "Week 5",
+      "ifNecessary": "false",
+      "seriesGameNumber": "",
+      "gameLabel": "",
+      "gameSubLabel": "",
+      "seriesText": "",
+      "arenaName": "TD Garden",
+      "arenaState": "MA",
+      "arenaCity": "Boston",
+      "postponedStatus": "N",
+      "gameSubtype": "",
+      "isNeutral": false,
+      "homeTeam": {
+       "teamId": 1610612738,
+       "teamName": "Celtics",
+       "teamCity": "Boston",
+       "teamTricode": "BOS",
+       "teamSlug": "celtics",
+       "wins": 8,
+       "losses": 2,
+       "score": 0,
+       "seed": 0
+      },
+      "awayTeam": {
+       "teamId": 1610612753,
+       "teamName": "Magic",
+       "teamCity": "Orlando",
+       "teamTricode": "ORL",
+       "teamSlug": "magic",
+       "wins": 2,
+       "losses": 7,
+       "score": 0,
+       "seed": 0
+      },
+      "pointsLeaders": []
+     },
+     {
+      "gameId": "0022600246",
+      "gameCode": "20261116/CHICLE",
+      "gameStatus": 1,
+      "gameStatusText": "7:00 pm ET",
+      "gameSequence": 2,
+      "gameDateEst": "2026-11-16T00:00:00Z",
+      "gameTimeEst": "1900-01-01T19:00:00Z",
+      "gameDateTimeEst": "2026-11-16T19:00:00Z",
+      "gameDateUTC": "2026-11-16T05:00:00Z",
+      "gameTimeUTC": "1900-01-01T00:00:00Z",
+      "gameDateTimeUTC": "2026-11-17T00:00:00Z",
+      "awayTeamTime": "2026-11-16T18:00:00Z",
+      "homeTeamTime": "2026-11-16T19:00:00Z",
+      "day": "Mon",
+      "monthNum": 11,
+      "weekNumber": 5,
+      "weekName": "Week 5",
+      "ifNecessary": "false",
+      "seriesGameNumber": "",
+      "gameLabel": "",
+      "gameSubLabel": "",
+      "seriesText": "",
+      "arenaName": "Rocket Arena",
+      "arenaState": "OH",
+      "arenaCity": "Cleveland",
+      "postponedStatus": "N",
+      "gameSubtype": "",
+      "isNeutral": false,
+      "homeTeam": {
+       "teamId": 1610612739,
+       "teamName": "Cavaliers",
+       "teamCity": "Cleveland",
+       "teamTricode": "CLE",
+       "teamSlug": "cavaliers",
+       "wins": 5,
+       "losses": 6,
+       "score": 0,
+       "seed": 0
+      },
+      "awayTeam": {
+       "teamId": 1610612741,
+       "teamName": "Bulls",
+       "teamCity": "Chicago",
+       "teamTricode": "CHI",
+       "teamSlug": "bulls",
+       "wins": 1,
+       "losses": 8,
+       "score": 0,
+       "seed": 0
+      },
+      "pointsLeaders": []
+     }
+    ]
+   }
+  ],
+  "weeks": [
+   {
+    "weekNumber": 1,
+    "weekName": "Week 1",
+    "startDate": "2026-10-20T00:00:00Z",
+    "endDate": "2026-10-25T00:00:00Z"
+   }
+  ]
+ }
+}

@@ -1,0 +1,144 @@
+{
+ "resource": "commonteamroster",
+ "parameters": {
+  "TeamID": 1610612747,
+  "LeagueID": "00",
+  "Season": "2026-27"
+ },
+ "resultSets": [
+  {
+   "name": "CommonTeamRoster",
+   "headers": [
+    "TeamID",
+    "SEASON",
+    "LeagueID",
+    "PLAYER",
+    "NICKNAME",
+    "PLAYER_SLUG",
+    "NUM",
+    "POSITION",
+    "HEIGHT",
+    "WEIGHT",
+    "BIRTH_DATE",
+    "AGE",
+    "EXP",
+    "SCHOOL",
+    "PLAYER_ID",
+    "HOW_ACQUIRED",
+    "SUPPLEMENTAL_STATUS"
+   ],
+   "rowSet": [
+    [
+     1610612747,
+     "2026",
+     "00",
+     "Lawson Lovering",
+     "Lawson",
+     "lawson-lovering",
+     null,
+     "C",
+     "7-0",
+     "235",
+     "MAY 09, 2003",
+     23.0,
+     "1",
+     "Utah",
+     1643133,
+     "Signed on 10/28/26",
+     1
+    ],
+    [
+     1610612747,
+     "2026",
+     "00",
+     "Adou Thiero",
+     "Adou",
+     "adou-thiero",
+     "1",
+     "G",
+     "6-7",
+     "220",
+     "MAY 08, 2004",
+     22.0,
+     "1",
+     "Arkansas",
+     1642876,
+     "Draft Rights Traded from BKN on 07/06/25",
+     0
+    ],
+    [
+     1610612747,
+     "2026",
+     "00",
+     "Jarred Vanderbilt",
+     "Jarred",
+     "jarred-vanderbilt",
+     "2",
+     "F",
+     "6-8",
+     "214",
+     "APR 03, 1999",
+     27.0,
+     "8",
+     "Kentucky",
+     1629020,
+     "Traded from UTA on 02/09/23",
+     0
+    ]
+   ]
+  },
+  {
+   "name": "Coaches",
+   "headers": [
+    "TEAM_ID",
+    "SEASON",
+    "COACH_ID",
+    "FIRST_NAME",
+    "LAST_NAME",
+    "COACH_NAME",
+    "IS_ASSISTANT",
+    "COACH_TYPE",
+    "SORT_SEQUENCE",
+    "SUB_SORT_SEQUENCE"
+   ],
+   "rowSet": [
+    [
+     1610612747,
+     "2026",
+     200755,
+     "JJ",
+     "Redick",
+     "JJ Redick",
+     1,
+     "Head Coach",
+     null,
+     1
+    ],
+    [
+     1610612747,
+     "2026",
+     1628785,
+     "Zach",
+     "Guthrie",
+     "Zach Guthrie",
+     2,
+     "Assistant Coach",
+     null,
+     5
+    ],
+    [
+     1610612747,
+     "2026",
+     1778,
+     "Nate",
+     "McMillan",
+     "Nate McMillan",
+     2,
+     "Assistant Coach",
+     null,
+     5
+    ]
+   ]
+  }
+ ]
+}
