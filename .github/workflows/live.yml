@@ -82,5 +82,5 @@ jobs:
       - run: uv sync --no-sources
       - name: vgi-lint (structural + behavioural)
         run: >
-          uvx --no-sources --from vgi-lint-check==2.2.0 vgi-lint lint "uv run --no-sources nba_worker.py"
+          uvx --no-sources --from vgi-lint-check==2.5.0 vgi-lint lint "uv run --no-sources nba_worker.py"
           --execute-concurrency 1 --no-check-links --audit-waivers --fail-on error
