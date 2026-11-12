@@ -1,6 +1,6 @@
 [project]
 name = "vgi-nba"
-version = "0.1.0"
+version = "0.2.0"
 description = "A read-only VGI worker exposing NBA, WNBA, and NBA G League standings, scores, and statistics to Haybarn SQL"
 readme = "README.md"
 license = "MIT"
@@ -15,7 +15,7 @@ classifiers = [
 ]
 requires-python = ">=3.13"
 dependencies = [
-    "vgi-python[http]>=0.50.0,<0.51",
+    "vgi-python[http]>=0.51.0,<0.52",
     "httpx>=0.27,<1",
     "pyarrow>=18,<26",
 ]

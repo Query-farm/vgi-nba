@@ -4,6 +4,11 @@ All notable changes to this project are documented here.
 
 ## [Unreleased]
 
+## [0.2.0]
+
+- Port to VGI protocol 3.3 (vgi-python 0.51). Requires the current VGI DuckDB
+  extension; 3.2 extensions are incompatible. No SQL surface changes.
+
 ## [0.1.0]
 
 - Initial release on VGI protocol 3.2 (vgi-python 0.50) with vgi-lint 2.2.0.
