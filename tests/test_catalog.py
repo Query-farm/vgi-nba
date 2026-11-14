@@ -8,10 +8,13 @@ from pathlib import Path
 
 import pytest
 
-from vgi_nba.functions import SURFACES
+from vgi_nba.functions import COMPOSED_EXAMPLES, SURFACES, render
+from vgi_nba.leagues import GLEAGUE, NBA, WNBA
+from vgi_nba.schemas import STANDINGS_COLS
 from vgi_nba.worker import NBA_CATALOG
 
 ROOT = Path(__file__).resolve().parent.parent
+LEAGUES = {league.schema: league for league in (NBA, WNBA, GLEAGUE)}
 
 FUNCTIONS = {
     "standings",
@@ -122,7 +125,7 @@ def test_catalog_discovery_contract_is_machine_readable() -> None:
     examples = json.loads(NBA_CATALOG.tags["vgi.executable_examples"])
     tasks = json.loads(NBA_CATALOG.tags["vgi.agent_test_tasks"])
     assert all({"name", "description", "sql", "expected_result"} <= example.keys() for example in examples)
-    assert 6 <= len(tasks) <= 10
+    assert 6 <= len(tasks) <= 12
     assert all(set(task) == {"name", "prompt"} for task in tasks)
     assert len({task["name"] for task in tasks}) == len(tasks)
 
@@ -132,8 +135,31 @@ def test_agent_test_file_matches_catalog_tasks() -> None:
     names = re.findall(r"^  - name: (\S+)$", text, re.MULTILINE)
     tasks = {task["name"] for task in json.loads(NBA_CATALOG.tags["vgi.agent_test_tasks"])}
     assert set(names) == tasks
-    assert text.count("    check_sql:") == len(names)
-    assert "reference_sql" not in text
+    # Every task has exactly one deterministic grader: check_sql for live data,
+    # reference_sql only for a completed season whose results no longer move.
+    assert text.count("    check_sql:") + text.count("    reference_sql:") == len(names)
+    for sql in re.findall(r"^    reference_sql: >-\n((?:      .*\n)+)", text, re.MULTILINE):
+        assert "current_" not in sql and "season := 2025" in sql, sql
+
+
+def test_composed_examples_are_on_their_driving_function_and_schema() -> None:
+    for schema in NBA_CATALOG.schemas:
+        name = schema.path[0]
+        schema_sql = [e["sql"] for e in json.loads(schema.tags["vgi.example_queries"])]
+        functions = {fn.Meta.name: fn for fn in schema.functions}
+        for example in COMPOSED_EXAMPLES:
+            driver = re.search(r"FROM nba\.\{s\}\.(\w+)\(", example.sql)
+            assert driver, example.sql
+            sql = render(example.sql, LEAGUES[name])
+            assert sql in schema_sql
+            assert sql in [e.sql for e in functions[driver.group(1)].Meta.examples[:5]]
+            # Composed: references at least two different objects of the schema.
+            assert len(set(re.findall(rf"nba\.{name}\.(\w+)", sql))) >= 2
+
+
+def test_playoff_rank_comment_covers_wnba_league_wide_seeding() -> None:
+    comment = next(c for c in STANDINGS_COLS if c.name == "playoff_rank").comment
+    assert "WNBA" in comment and "league-wide" in comment
 
 
 @pytest.mark.parametrize("schema", ["nba", "wnba", "gleague"])

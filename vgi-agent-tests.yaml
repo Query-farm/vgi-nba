@@ -1,6 +1,7 @@
 # Live-data tasks are graded with check_sql: the upstream values move daily,
 # so an exact reference result-set comparison cannot pass. Each assertion checks
 # that the objects a correct answer needs return the facts the prompt asks for.
+# Tasks about a completed season use reference_sql (see the end of the file).
 tasks:
   - name: conference_leaders
     check_sql: >-
@@ -95,3 +96,27 @@ tasks:
       WHERE rank = 1
     success_criteria: >-
       Uses the wnba schema's league_leaders for 2025 and reports A'ja Wilson at 23.4 points per game.
+
+  # The 2025-26 season is complete, so these historical results are stable and
+  # graded by exact comparison against the reference query.
+  - name: lakers_true_shooting
+    reference_sql: >-
+      SELECT a.player_name, a.true_shooting_percentage
+      FROM nba.nba.team_roster(1610612747, season := 2025) AS r
+      JOIN nba.nba.advanced_player_stats(season := 2025) AS a USING (player_id)
+      WHERE a.games_played >= 50
+      ORDER BY a.true_shooting_percentage DESC
+    success_criteria: >-
+      Joins team_roster(1610612747, season := 2025) to advanced_player_stats(season := 2025) on
+      player_id, keeps games_played >= 50, and ranks by true_shooting_percentage (Jaxson Hayes first).
+
+  - name: most_threes_team_seed
+    reference_sql: >-
+      SELECT t.team_id, s.conference, s.playoff_rank, t.three_pointers_made
+      FROM nba.nba.team_stats(season := 2025) AS t
+      JOIN nba.nba.standings(season := 2025) AS s USING (team_id)
+      ORDER BY t.three_pointers_made DESC
+      LIMIT 1
+    success_criteria: >-
+      Ranks team_stats(season := 2025) by three_pointers_made and joins standings(season := 2025) for
+      the seed: the Charlotte Hornets, 16.4 per game, ninth in the East.

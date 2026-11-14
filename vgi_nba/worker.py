@@ -10,7 +10,7 @@ from vgi import Worker
 from vgi.catalog import Catalog, ConstraintInfo, Schema, Table, constraint_record
 
 from vgi_nba import schemas as s
-from vgi_nba.functions import SURFACES, Spec, render
+from vgi_nba.functions import COMPOSED_EXAMPLES, SURFACES, Example, Spec, render
 from vgi_nba.leagues import GLEAGUE, NBA, WNBA, League
 from vgi_nba.meta import column_comments
 
@@ -112,6 +112,22 @@ _AGENT_TEST_TASKS = json.dumps(
             ),
         },
         {
+            "name": "lakers_true_shooting",
+            "prompt": (
+                "Which players on the Los Angeles Lakers' 2025-26 roster played at least 50 games that "
+                "season, and what was each one's true shooting percentage? Return player_name and "
+                "true_shooting_percentage (as a 0-1 fraction), highest true shooting first."
+            ),
+        },
+        {
+            "name": "most_threes_team_seed",
+            "prompt": (
+                "Which NBA team made the most three-pointers per game in the 2025-26 regular season, "
+                "and where was it seeded? Return one row: team_id, conference, playoff_rank, and "
+                "three_pointers_made (per game)."
+            ),
+        },
+        {
             "name": "wnba_scoring_title",
             "prompt": "Who led the WNBA in points per game in the 2025 season?",
         },
@@ -196,10 +212,13 @@ def _key_constraints(schema: str, table: str, key: tuple[str, ...]) -> tuple[Con
     return tuple(records)
 
 
+def _example_queries(examples: list[Example], league: League) -> str:
+    return json.dumps(
+        [{"description": render(e.description, league), "sql": render(e.sql, league)} for e in examples]
+    )
+
+
 def _table_tags(spec: Spec, league: League) -> dict[str, str]:
-    examples = [
-        {"description": render(e.description, league), "sql": render(e.sql, league)} for e in spec.examples
-    ]
     return {
         "provider": "nba",
         "vgi.category": spec.category,
@@ -207,7 +226,7 @@ def _table_tags(spec: Spec, league: League) -> dict[str, str]:
         "vgi.keywords": json.dumps(spec.keywords),
         "vgi.doc_llm": render(spec.doc_llm, league),
         "vgi.doc_md": render(spec.doc_md, league),
-        "vgi.example_queries": json.dumps(examples),
+        "vgi.example_queries": _example_queries(spec.examples, league),
     }
 
 
@@ -267,7 +286,7 @@ def _schema(league: League) -> Schema:
                 "Every object is read-only and fetched on demand from the NBA Stats API or the "
                 "league CDN. Game IDs are ten-digit text; keep the leading zeros when filtering."
             ),
-            "vgi.example_queries": _table_tags(first, league)["vgi.example_queries"],
+            "vgi.example_queries": _example_queries([*first.examples, *COMPOSED_EXAMPLES], league),
         },
         functions=surface.functions,
         tables=tables,

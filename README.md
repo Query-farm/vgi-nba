@@ -106,6 +106,12 @@ ORDER BY conference, playoff_rank;
 SELECT playoff_rank, team_city, team_name, wins, losses
 FROM nba.wnba.standings(season := 2025)
 ORDER BY playoff_rank;
+
+-- Final 2025-26 standings beside each team's net rating
+SELECT s.conference, s.playoff_rank, s.team_name, s.wins, s.losses, a.net_rating
+FROM nba.nba.standings(season := 2025) AS s
+JOIN nba.nba.advanced_team_stats(season := 2025) AS a USING (team_id)
+ORDER BY s.conference, s.playoff_rank;
 ```
 
 `win_percentage` and the games-back columns are exact decimals. `season_type`

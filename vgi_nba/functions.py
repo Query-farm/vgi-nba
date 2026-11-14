@@ -566,6 +566,33 @@ def _per_league(nba: int, wnba: int, gleague: int) -> dict[str, int]:
     return {"nba": nba, "wnba": wnba, "gleague": gleague}
 
 
+# Composed examples combine two of a league's own functions in one query. Each is
+# listed on the function that drives it and in the schema-level example list.
+STANDINGS_WITH_NET_RATING = Example(
+    "Final {season} standings in seeding order beside each team's net rating from advanced_team_stats.",
+    "SELECT s.conference, s.playoff_rank, s.team_name, s.wins, s.losses, a.net_rating "
+    "FROM nba.{s}.standings(season := {season}) AS s "
+    "JOIN nba.{s}.advanced_team_stats(season := {season}) AS a USING (team_id) "
+    "ORDER BY s.conference, s.playoff_rank",
+)
+ROSTER_WITH_AVERAGES = Example(
+    "The {season} {team_name} roster with each player's per-game season averages, top scorers first.",
+    "SELECT r.jersey_number, r.player_name, r.position, p.games_played, p.points, p.rebounds, p.assists "
+    "FROM nba.{s}.team_roster({team}, season := {season}) AS r "
+    "LEFT JOIN nba.{s}.player_stats(season := {season}) AS p USING (player_id) "
+    "ORDER BY p.points DESC NULLS LAST, r.player_name",
+)
+SCORING_LEADERS_EFFICIENCY = Example(
+    "The top ten of the official {season} scoring leaderboard with each player's usage and "
+    "true-shooting percentage.",
+    "SELECT l.rank, l.player_name, l.team_abbreviation, l.points, a.usage_percentage, "
+    "a.true_shooting_percentage "
+    "FROM nba.{s}.league_leaders(season := {season}, stat_category := 'PTS') AS l "
+    "JOIN nba.{s}.advanced_player_stats(season := {season}) AS a USING (player_id) "
+    "ORDER BY l.rank, l.player_name LIMIT 10",
+)
+COMPOSED_EXAMPLES = [STANDINGS_WITH_NET_RATING, ROSTER_WITH_AVERAGES, SCORING_LEADERS_EFFICIENCY]
+
 SPECS: list[Spec] = [
     Spec(
         name="standings",
@@ -590,7 +617,8 @@ SPECS: list[Spec] = [
                 "Final {season} conference standings in seeding order.",
                 "SELECT conference, playoff_rank, team_city, team_name, wins, losses "
                 "FROM nba.{s}.standings(season := {season}) ORDER BY conference, playoff_rank",
-            )
+            ),
+            STANDINGS_WITH_NET_RATING,
         ],
         estimate=TEAMS,
         max_rows=64,
@@ -639,7 +667,8 @@ SPECS: list[Spec] = [
                 "The current {team_name} roster.",
                 "SELECT jersey_number, player_name, position, height, weight_pounds "
                 "FROM nba.{s}.team_roster({team}) ORDER BY player_name",
-            )
+            ),
+            ROSTER_WITH_AVERAGES,
         ],
         estimate=_per_league(18, 13, 14),
         max_rows=40,
@@ -797,7 +826,8 @@ SPECS: list[Spec] = [
                 "SELECT rank, player_name, team_abbreviation, assists "
                 "FROM nba.{s}.league_leaders(season := {season}, stat_category := 'AST') "
                 "ORDER BY rank LIMIT 10",
-            )
+            ),
+            SCORING_LEADERS_EFFICIENCY,
         ],
         estimate=_per_league(230, 120, 290),
         key=("player_id",),

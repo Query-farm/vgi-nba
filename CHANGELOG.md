@@ -4,6 +4,12 @@ All notable changes to this project are documented here.
 
 ## [Unreleased]
 
+- Composed examples that join two of a league's functions (standings with net
+  rating, a roster with season averages, scoring leaders with efficiency), on
+  each driving function and in the schema-level list, plus two agent tasks.
+- Fix the `playoff_rank` column comment: WNBA seeding is league-wide, not per
+  conference.
+
 ## [0.2.0]
 
 - Port to VGI protocol 3.3 (vgi-python 0.51). Requires the current VGI DuckDB

@@ -322,7 +322,12 @@ STANDINGS_COLS = [
     col("team_name", TEXT, "Team nickname, such as Lakers.", "TeamName"),
     col("conference", TEXT, "Conference, East or West.", "Conference"),
     col("division", TEXT, "Division name; NULL for leagues without divisions.", "Division"),
-    col("playoff_rank", INT, "Rank within the conference (the playoff seeding order).", "PlayoffRank"),
+    col(
+        "playoff_rank",
+        INT,
+        "Playoff seeding rank: within the conference (NBA, G League) or league-wide (WNBA).",
+        "PlayoffRank",
+    ),
     col(
         "division_rank",
         INT,
