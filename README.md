@@ -326,3 +326,7 @@ start.
 ---
 
 Copyright 2026 Query Farm LLC - https://query.farm
+
+## Executed SQL notebook
+
+[Two team rows, one game](notebooks/README.md) reconciles recorded NBA scores, compares shooting measures, and tests a close-game threshold through the real VGI worker.

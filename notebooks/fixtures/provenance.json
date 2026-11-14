@@ -1,0 +1,20 @@
+{
+  "source": "Recorded, trimmed real NBA Stats response supplied by the worker repository; capture timestamp is not recorded.",
+  "repository": "https://github.com/Query-farm/vgi-nba",
+  "revision": "5d7bb8011fb035530deda5146446ce29313278bd",
+  "upstream_endpoint": "https://stats.nba.com/stats/leaguegamelog",
+  "query": {
+    "LeagueID": "00",
+    "Season": "2025-26",
+    "SeasonType": "Regular Season",
+    "PlayerOrTeam": "T"
+  },
+  "coverage": "Four team rows for two games on 2025-10-21; not a whole season.",
+  "files": [
+    {
+      "file": "leaguegamelog.json",
+      "source_path": "tests/fixtures/leaguegamelog.json",
+      "sha256": "a02b47065c06caaef65deb2347b4a6a203412b65da7e697c087ffe69a7c010e2"
+    }
+  ]
+}
