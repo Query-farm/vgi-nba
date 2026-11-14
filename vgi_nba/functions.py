@@ -569,7 +569,8 @@ def _per_league(nba: int, wnba: int, gleague: int) -> dict[str, int]:
 # Composed examples combine two of a league's own functions in one query. Each is
 # listed on the function that drives it and in the schema-level example list.
 STANDINGS_WITH_NET_RATING = Example(
-    "Final {season} standings in seeding order beside each team's net rating from advanced_team_stats.",
+    "Final {season} standings by conference and playoff seed, beside each team's net rating from "
+    "advanced_team_stats.",
     "SELECT s.conference, s.playoff_rank, s.team_name, s.wins, s.losses, a.net_rating "
     "FROM nba.{s}.standings(season := {season}) AS s "
     "JOIN nba.{s}.advanced_team_stats(season := {season}) AS a USING (team_id) "
