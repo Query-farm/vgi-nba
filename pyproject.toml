@@ -1,6 +1,6 @@
 [project]
 name = "vgi-nba"
-version = "0.2.0"
+version = "0.2.1"
 description = "A read-only VGI worker exposing NBA, WNBA, and NBA G League standings, scores, and statistics to Haybarn SQL"
 readme = "README.md"
 license = "MIT"

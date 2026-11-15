@@ -333,7 +333,14 @@ NBA_CATALOG = Catalog(
             "## Data source\n\n"
             "Data is fetched on demand from the NBA's public Stats API and content CDN; nothing is "
             "stored or rehosted. NBA data is for personal, non-commercial use under the NBA.com Terms "
-            "of Use. This project is not affiliated with or endorsed by the NBA, WNBA, or NBA G League."
+            "of Use. This project is not affiliated with or endorsed by the NBA, WNBA, or NBA G League.\n\n"
+            "* [NBA.com Stats](https://www.nba.com/stats), [WNBA.com Stats](https://www.wnba.com/stats) "
+            "and the [NBA G League](https://gleague.nba.com/): the official sites backed by the Stats API "
+            "and CDNs.\n"
+            "* [NBA.com Terms of Use](https://www.nba.com/termsofuse): the personal, non-commercial terms "
+            "that apply.\n"
+            "* [nba_api](https://github.com/swar/nba_api): a community reference for the Stats API's "
+            "endpoints."
         ),
     },
     schemas=[_schema(league) for league in (NBA, WNBA, GLEAGUE)],

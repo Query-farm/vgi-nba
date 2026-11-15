@@ -4,6 +4,11 @@ All notable changes to this project are documented here.
 
 ## [Unreleased]
 
+## [0.2.1]
+
+- Docs link to NBA.com Stats, WNBA.com Stats, the NBA G League and the NBA.com
+  Terms of Use: the catalog's documentation gains a Sources and references
+  section (vgi-lint VGI183).
 - Composed examples that join two of a league's functions (standings with net
   rating, a roster with season averages, scoring leaders with efficiency), on
   each driving function and in the schema-level list, plus two agent tasks.
