@@ -1,0 +1,1627 @@
+{
+  "schema_version": 1,
+  "catalogs": {
+    "released": {
+      "path": "coverage/catalog-released.json",
+      "sha256": "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "catalog_sha256": "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+        "notes": "Complete unfiltered functions/tables/views exports reconcile to 91 distinct (schema,name) surfaces. Same-named aliases merge; differently named backing scans remain in denominator, with no authentication/access exclusions. Actual analytical execution uses this public release."
+      }
+    },
+    "current": {
+      "path": "coverage/catalog-current.json",
+      "sha256": "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc",
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "catalog_sha256": "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc",
+        "notes": "Complete unfiltered functions/tables/views exports reconcile to 91 distinct (schema,name) surfaces. Same-named aliases merge; differently named backing scans remain in denominator, with no authentication/access exclusions. Actual current public SHA catalog was collected. Analytical runs use the release, so matching names/signatures establish correspondence, not exact-current execution. Current metadata clarifies that WNBA playoff_rank is league-wide rather than conference-specific; examples label the returned seed and do not claim a shared ranking population."
+      }
+    }
+  },
+  "notebooks": [
+    {
+      "path": "01_two_team_rows_one_game.ipynb",
+      "sha256": "05306ade2bb5bea4f6693e33eb23c8adeac72a31bd9e05bb865b6e535fd01de7",
+      "execution": {
+        "path": "coverage/run-01.json",
+        "sha256": "61f690391e26e521571ad84e9fbe52166596b251f39e0a9ffae7781dc621b925"
+      }
+    },
+    {
+      "path": "02_reconcile_games_events_and_players.ipynb",
+      "sha256": "9576f612a9faa217d0a0306e65a2ac10ac4eacaeed0d87d79bb01ff7904d307f",
+      "execution": {
+        "path": "coverage/run-02.json",
+        "sha256": "ec7efbf67f07c7cec386dd151b9da9336abc533052895ac864cfbe7300d391b5"
+      }
+    },
+    {
+      "path": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+      "execution": {
+        "path": "coverage/run-03.json",
+        "sha256": "f516c309fb5916adc1eb55f94dcd22babfd2ea6d5d7979f210262124de3c7658"
+      }
+    },
+    {
+      "path": "04_count_a_traded_season_once.ipynb",
+      "sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+      "execution": {
+        "path": "coverage/run-04.json",
+        "sha256": "aa652d5341b3ea6faf3840bc5dc7ea44da74f48ea7e0daec4cfbadf41dfa13c1"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "object": {
+        "schema": "nba",
+        "name": "league_game_log"
+      },
+      "notebook": "01_two_team_rows_one_game.ipynb",
+      "sql": [
+        {
+          "cell": "cadffd15",
+          "reference": "nba.nba.league_game_log"
+        }
+      ],
+      "narrative_cells": [
+        "01b3406e"
+      ],
+      "result_cells": [
+        "dba42670"
+      ],
+      "interpretation_cells": [
+        "042e28a0"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "05306ade2bb5bea4f6693e33eb23c8adeac72a31bd9e05bb865b6e535fd01de7",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Pair two team-game rows before score and shooting-efficiency comparisons.",
+        "finding": "Real recorded four-row response retains two complete games; made-shot points reconcile and effective FG% changes one pair comparison. Margin10\u21923 retains one game; raw rows remain fixed. Live mode separately reproduced the selected real rows, not substituted into the saved replay."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "scoreboard"
+      },
+      "notebook": "02_reconcile_games_events_and_players.ipynb",
+      "sql": [
+        {
+          "cell": "fetch-sql",
+          "reference": "nba.nba.scoreboard"
+        }
+      ],
+      "narrative_cells": [
+        "fetch-question"
+      ],
+      "result_cells": [
+        "game-audit-result"
+      ],
+      "interpretation_cells": [
+        "selected-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "9576f612a9faa217d0a0306e65a2ac10ac4eacaeed0d87d79bb01ff7904d307f",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Separate game, player-game and event grains before applying a local period filter.",
+        "finding": "One final game row provides fixed home/away reference scores. Explicitly fictional API envelope parsed by released worker. Period4\u21921 changes selected totals14\u219244 points across leagues; full-game references remain fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "box_score"
+      },
+      "notebook": "02_reconcile_games_events_and_players.ipynb",
+      "sql": [
+        {
+          "cell": "fetch-sql",
+          "reference": "nba.nba.box_score"
+        }
+      ],
+      "narrative_cells": [
+        "fetch-question"
+      ],
+      "result_cells": [
+        "game-audit-result"
+      ],
+      "interpretation_cells": [
+        "selected-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "9576f612a9faa217d0a0306e65a2ac10ac4eacaeed0d87d79bb01ff7904d307f",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Separate game, player-game and event grains before applying a local period filter.",
+        "finding": "Four player rows aggregate to the two scoreboard totals before joining, avoiding duplicated game scores. Explicitly fictional API envelope parsed by released worker. Period4\u21921 changes selected totals14\u219244 points across leagues; full-game references remain fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "play_by_play"
+      },
+      "notebook": "02_reconcile_games_events_and_players.ipynb",
+      "sql": [
+        {
+          "cell": "fetch-sql",
+          "reference": "nba.nba.play_by_play"
+        }
+      ],
+      "narrative_cells": [
+        "event-question"
+      ],
+      "result_cells": [
+        "event-plot"
+      ],
+      "interpretation_cells": [
+        "selected-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "9576f612a9faa217d0a0306e65a2ac10ac4eacaeed0d87d79bb01ff7904d307f",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Separate game, player-game and event grains before applying a local period filter.",
+        "finding": "Seven unique action IDs retain repeated action_number and a final missed shot; carried-forward running scores reconcile with scoreboard, while period-filtered made-shot points change. Explicitly fictional API envelope parsed by released worker. Period4\u21921 changes selected totals14\u219244 points across leagues; full-game references remain fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "standings"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "team-fetch-sql",
+          "reference": "nba.nba.standings"
+        }
+      ],
+      "narrative_cells": [
+        "teams-question"
+      ],
+      "result_cells": [
+        "team-plot"
+      ],
+      "interpretation_cells": [
+        "team-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Keep metric units and ranking populations explicit.",
+        "finding": "Returned record and seed provide a win-based ordering context; no cross-league seed semantics or full-league balance asserted. Three fictional teams per league; displayed joined metrics and shared-scale figure make the distinction visible. The team context is unchanged by the player eligibility experiment."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "team_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "team-fetch-sql",
+          "reference": "nba.nba.team_stats"
+        }
+      ],
+      "narrative_cells": [
+        "teams-question"
+      ],
+      "result_cells": [
+        "team-plot"
+      ],
+      "interpretation_cells": [
+        "team-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Keep metric units and ranking populations explicit.",
+        "finding": "PerGame points and games are joined at league/team/season grain and remain distinct from per-possession rates. Three fictional teams per league; displayed joined metrics and shared-scale figure make the distinction visible. The team context is unchanged by the player eligibility experiment."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "advanced_team_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "team-fetch-sql",
+          "reference": "nba.nba.advanced_team_stats"
+        }
+      ],
+      "narrative_cells": [
+        "teams-question"
+      ],
+      "result_cells": [
+        "team-plot"
+      ],
+      "interpretation_cells": [
+        "team-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Keep metric units and ranking populations explicit.",
+        "finding": "Net rating in points per100 possessions disagrees with win-based seed, while pace is retained separately. Three fictional teams per league; displayed joined metrics and shared-scale figure make the distinction visible. The team context is unchanged by the player eligibility experiment."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "player_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "player-fetch-sql",
+          "reference": "nba.nba.player_stats"
+        }
+      ],
+      "narrative_cells": [
+        "players-question"
+      ],
+      "result_cells": [
+        "player-plot"
+      ],
+      "interpretation_cells": [
+        "player-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Compare rate and sample-size context before filtering a player population.",
+        "finding": "Points per game and games played determine the local eligibility rule. Fictional four-game scorer is excluded at MIN_GAMES5 and included at1; eligible markers6\u21929 across leagues, underlying rate and rank values fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "advanced_player_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "player-fetch-sql",
+          "reference": "nba.nba.advanced_player_stats"
+        }
+      ],
+      "narrative_cells": [
+        "players-question"
+      ],
+      "result_cells": [
+        "player-plot"
+      ],
+      "interpretation_cells": [
+        "player-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Compare rate and sample-size context before filtering a player population.",
+        "finding": "True-shooting and usage fractions are joined by player/league/season and kept separate from scoring rate. Fictional four-game scorer is excluded at MIN_GAMES5 and included at1; eligible markers6\u21929 across leagues, underlying rate and rank values fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "league_leaders"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "player-fetch-sql",
+          "reference": "nba.nba.league_leaders"
+        }
+      ],
+      "narrative_cells": [
+        "players-question"
+      ],
+      "result_cells": [
+        "player-plot"
+      ],
+      "interpretation_cells": [
+        "player-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Compare rate and sample-size context before filtering a player population.",
+        "finding": "Returned rank, points and games reconcile against the base rate source; provider rank stays visible rather than being relabeled after a local filter. Fictional four-game scorer is excluded at MIN_GAMES5 and included at1; eligible markers6\u21929 across leagues, underlying rate and rank values fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "players"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "identity-fetch-sql",
+          "reference": "nba.nba.players"
+        }
+      ],
+      "narrative_cells": [
+        "identity-question"
+      ],
+      "result_cells": [
+        "identity-result"
+      ],
+      "interpretation_cells": [
+        "identity-result"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Resolve a player using league-scoped identity and separate index/roster membership.",
+        "finding": "The full index includes three fictional people; explicit IDs and activity flags are joined within league. All nine index rows remain visible, and Ada Vale ID9001 is selected in each schema without cross-league multiplication."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "current_players"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "identity-fetch-sql",
+          "reference": "nba.nba.current_players"
+        }
+      ],
+      "narrative_cells": [
+        "identity-question"
+      ],
+      "result_cells": [
+        "identity-result"
+      ],
+      "interpretation_cells": [
+        "identity-result"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Resolve a player using league-scoped identity and separate index/roster membership.",
+        "finding": "The active subset excludes one of the three index entries. Its membership column guides identity selection; no claim about current real rosters. All nine index rows remain visible, and Ada Vale ID9001 is selected in each schema without cross-league multiplication."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "team_roster"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "identity-fetch-sql",
+          "reference": "nba.nba.team_roster"
+        }
+      ],
+      "narrative_cells": [
+        "identity-question"
+      ],
+      "result_cells": [
+        "identity-result"
+      ],
+      "interpretation_cells": [
+        "identity-result"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Resolve a player using league-scoped identity and separate index/roster membership.",
+        "finding": "The season roster is a separate membership relation and selects the named player for the career analysis. All nine index rows remain visible, and Ada Vale ID9001 is selected in each schema without cross-league multiplication."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "player_career_stats"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "career-fetch-sql",
+          "reference": "nba.nba.player_career_stats"
+        }
+      ],
+      "narrative_cells": [
+        "career-question"
+      ],
+      "result_cells": [
+        "rows-plot"
+      ],
+      "interpretation_cells": [
+        "audit-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Count each traded season once and reconcile season and career quantities separately.",
+        "finding": "Mixed team-season and TOT rows demonstrate overlapping grain; selection policies choose two versus three rows per career. Fictional True\u2192False policy experiment changes selected row count6\u21929 across leagues while canonical career and season totals stay identical."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "player_career_totals"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "career-fetch-sql",
+          "reference": "nba.nba.player_career_totals"
+        }
+      ],
+      "narrative_cells": [
+        "career-question"
+      ],
+      "result_cells": [
+        "audit-plot"
+      ],
+      "interpretation_cells": [
+        "audit-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Count each traded season once and reconcile season and career quantities separately.",
+        "finding": "Independent career endpoint supplies160points/eightgames and exposes the naive260point double count. Fictional True\u2192False policy experiment changes selected row count6\u21929 across leagues while canonical career and season totals stay identical."
+      }
+    },
+    {
+      "object": {
+        "schema": "nba",
+        "name": "player_game_log"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "career-fetch-sql",
+          "reference": "nba.nba.player_game_log"
+        }
+      ],
+      "narrative_cells": [
+        "career-question"
+      ],
+      "result_cells": [
+        "audit-plot"
+      ],
+      "interpretation_cells": [
+        "audit-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Count each traded season once and reconcile season and career quantities separately.",
+        "finding": "Five later-season game lines sum to100points/fivegames and reconcile with that season, not the complete career. Fictional True\u2192False policy experiment changes selected row count6\u21929 across leagues while canonical career and season totals stay identical."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "scoreboard"
+      },
+      "notebook": "02_reconcile_games_events_and_players.ipynb",
+      "sql": [
+        {
+          "cell": "fetch-sql",
+          "reference": "nba.wnba.scoreboard"
+        }
+      ],
+      "narrative_cells": [
+        "fetch-question"
+      ],
+      "result_cells": [
+        "game-audit-result"
+      ],
+      "interpretation_cells": [
+        "selected-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "9576f612a9faa217d0a0306e65a2ac10ac4eacaeed0d87d79bb01ff7904d307f",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Separate game, player-game and event grains before applying a local period filter.",
+        "finding": "One final game row provides fixed home/away reference scores. Explicitly fictional API envelope parsed by released worker. Period4\u21921 changes selected totals14\u219244 points across leagues; full-game references remain fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "box_score"
+      },
+      "notebook": "02_reconcile_games_events_and_players.ipynb",
+      "sql": [
+        {
+          "cell": "fetch-sql",
+          "reference": "nba.wnba.box_score"
+        }
+      ],
+      "narrative_cells": [
+        "fetch-question"
+      ],
+      "result_cells": [
+        "game-audit-result"
+      ],
+      "interpretation_cells": [
+        "selected-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "9576f612a9faa217d0a0306e65a2ac10ac4eacaeed0d87d79bb01ff7904d307f",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Separate game, player-game and event grains before applying a local period filter.",
+        "finding": "Four player rows aggregate to the two scoreboard totals before joining, avoiding duplicated game scores. Explicitly fictional API envelope parsed by released worker. Period4\u21921 changes selected totals14\u219244 points across leagues; full-game references remain fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "play_by_play"
+      },
+      "notebook": "02_reconcile_games_events_and_players.ipynb",
+      "sql": [
+        {
+          "cell": "fetch-sql",
+          "reference": "nba.wnba.play_by_play"
+        }
+      ],
+      "narrative_cells": [
+        "event-question"
+      ],
+      "result_cells": [
+        "event-plot"
+      ],
+      "interpretation_cells": [
+        "selected-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "9576f612a9faa217d0a0306e65a2ac10ac4eacaeed0d87d79bb01ff7904d307f",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Separate game, player-game and event grains before applying a local period filter.",
+        "finding": "Seven unique action IDs retain repeated action_number and a final missed shot; carried-forward running scores reconcile with scoreboard, while period-filtered made-shot points change. Explicitly fictional API envelope parsed by released worker. Period4\u21921 changes selected totals14\u219244 points across leagues; full-game references remain fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "standings"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "team-fetch-sql",
+          "reference": "nba.wnba.standings"
+        }
+      ],
+      "narrative_cells": [
+        "teams-question"
+      ],
+      "result_cells": [
+        "team-plot"
+      ],
+      "interpretation_cells": [
+        "team-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Keep metric units and ranking populations explicit.",
+        "finding": "Returned record and seed provide a win-based ordering context; no cross-league seed semantics or full-league balance asserted. Three fictional teams per league; displayed joined metrics and shared-scale figure make the distinction visible. The team context is unchanged by the player eligibility experiment."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "team_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "team-fetch-sql",
+          "reference": "nba.wnba.team_stats"
+        }
+      ],
+      "narrative_cells": [
+        "teams-question"
+      ],
+      "result_cells": [
+        "team-plot"
+      ],
+      "interpretation_cells": [
+        "team-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Keep metric units and ranking populations explicit.",
+        "finding": "PerGame points and games are joined at league/team/season grain and remain distinct from per-possession rates. Three fictional teams per league; displayed joined metrics and shared-scale figure make the distinction visible. The team context is unchanged by the player eligibility experiment."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "advanced_team_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "team-fetch-sql",
+          "reference": "nba.wnba.advanced_team_stats"
+        }
+      ],
+      "narrative_cells": [
+        "teams-question"
+      ],
+      "result_cells": [
+        "team-plot"
+      ],
+      "interpretation_cells": [
+        "team-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Keep metric units and ranking populations explicit.",
+        "finding": "Net rating in points per100 possessions disagrees with win-based seed, while pace is retained separately. Three fictional teams per league; displayed joined metrics and shared-scale figure make the distinction visible. The team context is unchanged by the player eligibility experiment."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "player_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "player-fetch-sql",
+          "reference": "nba.wnba.player_stats"
+        }
+      ],
+      "narrative_cells": [
+        "players-question"
+      ],
+      "result_cells": [
+        "player-plot"
+      ],
+      "interpretation_cells": [
+        "player-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Compare rate and sample-size context before filtering a player population.",
+        "finding": "Points per game and games played determine the local eligibility rule. Fictional four-game scorer is excluded at MIN_GAMES5 and included at1; eligible markers6\u21929 across leagues, underlying rate and rank values fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "advanced_player_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "player-fetch-sql",
+          "reference": "nba.wnba.advanced_player_stats"
+        }
+      ],
+      "narrative_cells": [
+        "players-question"
+      ],
+      "result_cells": [
+        "player-plot"
+      ],
+      "interpretation_cells": [
+        "player-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Compare rate and sample-size context before filtering a player population.",
+        "finding": "True-shooting and usage fractions are joined by player/league/season and kept separate from scoring rate. Fictional four-game scorer is excluded at MIN_GAMES5 and included at1; eligible markers6\u21929 across leagues, underlying rate and rank values fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "league_leaders"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "player-fetch-sql",
+          "reference": "nba.wnba.league_leaders"
+        }
+      ],
+      "narrative_cells": [
+        "players-question"
+      ],
+      "result_cells": [
+        "player-plot"
+      ],
+      "interpretation_cells": [
+        "player-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Compare rate and sample-size context before filtering a player population.",
+        "finding": "Returned rank, points and games reconcile against the base rate source; provider rank stays visible rather than being relabeled after a local filter. Fictional four-game scorer is excluded at MIN_GAMES5 and included at1; eligible markers6\u21929 across leagues, underlying rate and rank values fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "players"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "identity-fetch-sql",
+          "reference": "nba.wnba.players"
+        }
+      ],
+      "narrative_cells": [
+        "identity-question"
+      ],
+      "result_cells": [
+        "identity-result"
+      ],
+      "interpretation_cells": [
+        "identity-result"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Resolve a player using league-scoped identity and separate index/roster membership.",
+        "finding": "The full index includes three fictional people; explicit IDs and activity flags are joined within league. All nine index rows remain visible, and Ada Vale ID9001 is selected in each schema without cross-league multiplication."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "current_players"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "identity-fetch-sql",
+          "reference": "nba.wnba.current_players"
+        }
+      ],
+      "narrative_cells": [
+        "identity-question"
+      ],
+      "result_cells": [
+        "identity-result"
+      ],
+      "interpretation_cells": [
+        "identity-result"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Resolve a player using league-scoped identity and separate index/roster membership.",
+        "finding": "The active subset excludes one of the three index entries. Its membership column guides identity selection; no claim about current real rosters. All nine index rows remain visible, and Ada Vale ID9001 is selected in each schema without cross-league multiplication."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "team_roster"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "identity-fetch-sql",
+          "reference": "nba.wnba.team_roster"
+        }
+      ],
+      "narrative_cells": [
+        "identity-question"
+      ],
+      "result_cells": [
+        "identity-result"
+      ],
+      "interpretation_cells": [
+        "identity-result"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Resolve a player using league-scoped identity and separate index/roster membership.",
+        "finding": "The season roster is a separate membership relation and selects the named player for the career analysis. All nine index rows remain visible, and Ada Vale ID9001 is selected in each schema without cross-league multiplication."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "player_career_stats"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "career-fetch-sql",
+          "reference": "nba.wnba.player_career_stats"
+        }
+      ],
+      "narrative_cells": [
+        "career-question"
+      ],
+      "result_cells": [
+        "rows-plot"
+      ],
+      "interpretation_cells": [
+        "audit-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Count each traded season once and reconcile season and career quantities separately.",
+        "finding": "Mixed team-season and TOT rows demonstrate overlapping grain; selection policies choose two versus three rows per career. Fictional True\u2192False policy experiment changes selected row count6\u21929 across leagues while canonical career and season totals stay identical."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "player_career_totals"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "career-fetch-sql",
+          "reference": "nba.wnba.player_career_totals"
+        }
+      ],
+      "narrative_cells": [
+        "career-question"
+      ],
+      "result_cells": [
+        "audit-plot"
+      ],
+      "interpretation_cells": [
+        "audit-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Count each traded season once and reconcile season and career quantities separately.",
+        "finding": "Independent career endpoint supplies160points/eightgames and exposes the naive260point double count. Fictional True\u2192False policy experiment changes selected row count6\u21929 across leagues while canonical career and season totals stay identical."
+      }
+    },
+    {
+      "object": {
+        "schema": "wnba",
+        "name": "player_game_log"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "career-fetch-sql",
+          "reference": "nba.wnba.player_game_log"
+        }
+      ],
+      "narrative_cells": [
+        "career-question"
+      ],
+      "result_cells": [
+        "audit-plot"
+      ],
+      "interpretation_cells": [
+        "audit-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Count each traded season once and reconcile season and career quantities separately.",
+        "finding": "Five later-season game lines sum to100points/fivegames and reconcile with that season, not the complete career. Fictional True\u2192False policy experiment changes selected row count6\u21929 across leagues while canonical career and season totals stay identical."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "scoreboard"
+      },
+      "notebook": "02_reconcile_games_events_and_players.ipynb",
+      "sql": [
+        {
+          "cell": "fetch-sql",
+          "reference": "nba.gleague.scoreboard"
+        }
+      ],
+      "narrative_cells": [
+        "fetch-question"
+      ],
+      "result_cells": [
+        "game-audit-result"
+      ],
+      "interpretation_cells": [
+        "selected-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "9576f612a9faa217d0a0306e65a2ac10ac4eacaeed0d87d79bb01ff7904d307f",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Separate game, player-game and event grains before applying a local period filter.",
+        "finding": "One final game row provides fixed home/away reference scores. Explicitly fictional API envelope parsed by released worker. Period4\u21921 changes selected totals14\u219244 points across leagues; full-game references remain fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "box_score"
+      },
+      "notebook": "02_reconcile_games_events_and_players.ipynb",
+      "sql": [
+        {
+          "cell": "fetch-sql",
+          "reference": "nba.gleague.box_score"
+        }
+      ],
+      "narrative_cells": [
+        "fetch-question"
+      ],
+      "result_cells": [
+        "game-audit-result"
+      ],
+      "interpretation_cells": [
+        "selected-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "9576f612a9faa217d0a0306e65a2ac10ac4eacaeed0d87d79bb01ff7904d307f",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Separate game, player-game and event grains before applying a local period filter.",
+        "finding": "Four player rows aggregate to the two scoreboard totals before joining, avoiding duplicated game scores. Explicitly fictional API envelope parsed by released worker. Period4\u21921 changes selected totals14\u219244 points across leagues; full-game references remain fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "play_by_play"
+      },
+      "notebook": "02_reconcile_games_events_and_players.ipynb",
+      "sql": [
+        {
+          "cell": "fetch-sql",
+          "reference": "nba.gleague.play_by_play"
+        }
+      ],
+      "narrative_cells": [
+        "event-question"
+      ],
+      "result_cells": [
+        "event-plot"
+      ],
+      "interpretation_cells": [
+        "selected-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "9576f612a9faa217d0a0306e65a2ac10ac4eacaeed0d87d79bb01ff7904d307f",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Separate game, player-game and event grains before applying a local period filter.",
+        "finding": "Seven unique action IDs retain repeated action_number and a final missed shot; carried-forward running scores reconcile with scoreboard, while period-filtered made-shot points change. Explicitly fictional API envelope parsed by released worker. Period4\u21921 changes selected totals14\u219244 points across leagues; full-game references remain fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "standings"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "team-fetch-sql",
+          "reference": "nba.gleague.standings"
+        }
+      ],
+      "narrative_cells": [
+        "teams-question"
+      ],
+      "result_cells": [
+        "team-plot"
+      ],
+      "interpretation_cells": [
+        "team-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Keep metric units and ranking populations explicit.",
+        "finding": "Returned record and seed provide a win-based ordering context; no cross-league seed semantics or full-league balance asserted. Three fictional teams per league; displayed joined metrics and shared-scale figure make the distinction visible. The team context is unchanged by the player eligibility experiment."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "team_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "team-fetch-sql",
+          "reference": "nba.gleague.team_stats"
+        }
+      ],
+      "narrative_cells": [
+        "teams-question"
+      ],
+      "result_cells": [
+        "team-plot"
+      ],
+      "interpretation_cells": [
+        "team-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Keep metric units and ranking populations explicit.",
+        "finding": "PerGame points and games are joined at league/team/season grain and remain distinct from per-possession rates. Three fictional teams per league; displayed joined metrics and shared-scale figure make the distinction visible. The team context is unchanged by the player eligibility experiment."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "advanced_team_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "team-fetch-sql",
+          "reference": "nba.gleague.advanced_team_stats"
+        }
+      ],
+      "narrative_cells": [
+        "teams-question"
+      ],
+      "result_cells": [
+        "team-plot"
+      ],
+      "interpretation_cells": [
+        "team-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Keep metric units and ranking populations explicit.",
+        "finding": "Net rating in points per100 possessions disagrees with win-based seed, while pace is retained separately. Three fictional teams per league; displayed joined metrics and shared-scale figure make the distinction visible. The team context is unchanged by the player eligibility experiment."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "player_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "player-fetch-sql",
+          "reference": "nba.gleague.player_stats"
+        }
+      ],
+      "narrative_cells": [
+        "players-question"
+      ],
+      "result_cells": [
+        "player-plot"
+      ],
+      "interpretation_cells": [
+        "player-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Compare rate and sample-size context before filtering a player population.",
+        "finding": "Points per game and games played determine the local eligibility rule. Fictional four-game scorer is excluded at MIN_GAMES5 and included at1; eligible markers6\u21929 across leagues, underlying rate and rank values fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "advanced_player_stats"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "player-fetch-sql",
+          "reference": "nba.gleague.advanced_player_stats"
+        }
+      ],
+      "narrative_cells": [
+        "players-question"
+      ],
+      "result_cells": [
+        "player-plot"
+      ],
+      "interpretation_cells": [
+        "player-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Compare rate and sample-size context before filtering a player population.",
+        "finding": "True-shooting and usage fractions are joined by player/league/season and kept separate from scoring rate. Fictional four-game scorer is excluded at MIN_GAMES5 and included at1; eligible markers6\u21929 across leagues, underlying rate and rank values fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "league_leaders"
+      },
+      "notebook": "03_keep_rate_units_and_rank_populations.ipynb",
+      "sql": [
+        {
+          "cell": "player-fetch-sql",
+          "reference": "nba.gleague.league_leaders"
+        }
+      ],
+      "narrative_cells": [
+        "players-question"
+      ],
+      "result_cells": [
+        "player-plot"
+      ],
+      "interpretation_cells": [
+        "player-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Compare rate and sample-size context before filtering a player population.",
+        "finding": "Returned rank, points and games reconcile against the base rate source; provider rank stays visible rather than being relabeled after a local filter. Fictional four-game scorer is excluded at MIN_GAMES5 and included at1; eligible markers6\u21929 across leagues, underlying rate and rank values fixed."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "players"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "identity-fetch-sql",
+          "reference": "nba.gleague.players"
+        }
+      ],
+      "narrative_cells": [
+        "identity-question"
+      ],
+      "result_cells": [
+        "identity-result"
+      ],
+      "interpretation_cells": [
+        "identity-result"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Resolve a player using league-scoped identity and separate index/roster membership.",
+        "finding": "The full index includes three fictional people; explicit IDs and activity flags are joined within league. All nine index rows remain visible, and Ada Vale ID9001 is selected in each schema without cross-league multiplication."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "current_players"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "identity-fetch-sql",
+          "reference": "nba.gleague.current_players"
+        }
+      ],
+      "narrative_cells": [
+        "identity-question"
+      ],
+      "result_cells": [
+        "identity-result"
+      ],
+      "interpretation_cells": [
+        "identity-result"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Resolve a player using league-scoped identity and separate index/roster membership.",
+        "finding": "The active subset excludes one of the three index entries. Its membership column guides identity selection; no claim about current real rosters. All nine index rows remain visible, and Ada Vale ID9001 is selected in each schema without cross-league multiplication."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "team_roster"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "identity-fetch-sql",
+          "reference": "nba.gleague.team_roster"
+        }
+      ],
+      "narrative_cells": [
+        "identity-question"
+      ],
+      "result_cells": [
+        "identity-result"
+      ],
+      "interpretation_cells": [
+        "identity-result"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Resolve a player using league-scoped identity and separate index/roster membership.",
+        "finding": "The season roster is a separate membership relation and selects the named player for the career analysis. All nine index rows remain visible, and Ada Vale ID9001 is selected in each schema without cross-league multiplication."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "player_career_stats"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "career-fetch-sql",
+          "reference": "nba.gleague.player_career_stats"
+        }
+      ],
+      "narrative_cells": [
+        "career-question"
+      ],
+      "result_cells": [
+        "rows-plot"
+      ],
+      "interpretation_cells": [
+        "audit-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Count each traded season once and reconcile season and career quantities separately.",
+        "finding": "Mixed team-season and TOT rows demonstrate overlapping grain; selection policies choose two versus three rows per career. Fictional True\u2192False policy experiment changes selected row count6\u21929 across leagues while canonical career and season totals stay identical."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "player_career_totals"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "career-fetch-sql",
+          "reference": "nba.gleague.player_career_totals"
+        }
+      ],
+      "narrative_cells": [
+        "career-question"
+      ],
+      "result_cells": [
+        "audit-plot"
+      ],
+      "interpretation_cells": [
+        "audit-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Count each traded season once and reconcile season and career quantities separately.",
+        "finding": "Independent career endpoint supplies160points/eightgames and exposes the naive260point double count. Fictional True\u2192False policy experiment changes selected row count6\u21929 across leagues while canonical career and season totals stay identical."
+      }
+    },
+    {
+      "object": {
+        "schema": "gleague",
+        "name": "player_game_log"
+      },
+      "notebook": "04_count_a_traded_season_once.ipynb",
+      "sql": [
+        {
+          "cell": "career-fetch-sql",
+          "reference": "nba.gleague.player_game_log"
+        }
+      ],
+      "narrative_cells": [
+        "career-question"
+      ],
+      "result_cells": [
+        "audit-plot"
+      ],
+      "interpretation_cells": [
+        "audit-plot"
+      ],
+      "review": {
+        "status": "approved",
+        "reviewer": "/root/notebooks_sympy",
+        "reviewed_at": "2026-11-15T01:04:07.613199+00:00",
+        "notebook_sha256": "d9c733a067302262835ca6db1929a84abc04b03534e1b5331e3af750b6c04edd",
+        "catalog_sha256": [
+          "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+          "00a2a4fbff3085a0d1e78c17a87760a4a6e84efa2aa0d0e4430c1154596a27dc"
+        ],
+        "purpose": "Count each traded season once and reconcile season and career quantities separately.",
+        "finding": "Five later-season game lines sum to100points/fivegames and reconcile with that season, not the complete career. Fictional True\u2192False policy experiment changes selected row count6\u21929 across leagues while canonical career and season totals stay identical."
+      }
+    }
+  ]
+}

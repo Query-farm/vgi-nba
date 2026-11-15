@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "notebook_sha256": "9576f612a9faa217d0a0306e65a2ac10ac4eacaeed0d87d79bb01ff7904d307f",
+  "catalog_sha256": "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+  "worker_revision": "e36859a0682d355e889df9e869708ce2bb4e7dcd",
+  "status": "success",
+  "executed_at": "2026-11-15T01:04:07.613199+00:00",
+  "engine": "Haybarn 2.0.0rc11 / community VGI; isolated Python3.13 NBA v0.2.0; shared v0.3.47",
+  "command": "uv run --locked vgi-notebooks 02_reconcile_games_events_and_players.ipynb --timeout 600",
+  "catalog_aliases": [
+    "nba"
+  ],
+  "cells": [
+    {
+      "id": "parameters",
+      "status": "success",
+      "execution_count": 1,
+      "source_sha256": "35162316471c4c668b3325f2d719eeace541c9c3233df94a05a3f1729a09e0ed",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "bootstrap",
+      "status": "success",
+      "execution_count": 2,
+      "source_sha256": "a4bf88a5dba2532effd3a5b45b1c7d738355bc9c46a9e5bae4c13537cf0fc6d3",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "setup",
+      "status": "success",
+      "execution_count": 3,
+      "source_sha256": "9e5e1d70befb5b33858e1118a214a5e672199187f83cda343e491d9d8042854e",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "attach",
+      "status": "success",
+      "execution_count": 4,
+      "source_sha256": "060b7617ebb489804f5c17caa2cf7929634208663aede6e880059f25231f15a3",
+      "outputs_sha256": "c17c19a5c176854762c97c96bafef62f247262c382ecc6533cf998819c105960"
+    },
+    {
+      "id": "fetch-sql",
+      "status": "success",
+      "execution_count": 5,
+      "source_sha256": "e6e8b1e6b910cfa9015e47271283446ee2e993011e842c53d3c35bc0704e7c6e",
+      "outputs_sha256": "23c8940505861b0952ea3eeab2c75a52fa17ba150448cdb4800ec9653ee5050b"
+    },
+    {
+      "id": "game-audit-sql",
+      "status": "success",
+      "execution_count": 6,
+      "source_sha256": "95232127d173baed420f14af9f836e1fdc5b68d921c7b5470f7748a2c32532a3",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "game-audit-result",
+      "status": "success",
+      "execution_count": 7,
+      "source_sha256": "483407fe11a843975d86b68f50a176bbf9b560f5011210eabfe22d190b897b19",
+      "outputs_sha256": "a77cdf3a9f959f8dea00f5cb841e0a6d9251706e28aef432c316c199b45dcaae"
+    },
+    {
+      "id": "event-frame-sql",
+      "status": "success",
+      "execution_count": 8,
+      "source_sha256": "39cb3a42f048e71f9f29b415d20e6ef8fab730031bf9dd80dd7b83e130c963a6",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "event-plot",
+      "status": "success",
+      "execution_count": 9,
+      "source_sha256": "36ea09490a44f8e7dc6c1fc2388ea506568483438141bb5d20cf00a1706c4474",
+      "outputs_sha256": "7d333bbbe0b856770b46a0ba9f7aff53a5bb3b160e8d337e8389f522406ea2c7"
+    },
+    {
+      "id": "selected-sql",
+      "status": "success",
+      "execution_count": 10,
+      "source_sha256": "fa8bd923aeebc9dcaee8eb9dffb49ed126b7593d2e9b67191e5fc4a98cb94d9f",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "selected-plot",
+      "status": "success",
+      "execution_count": 11,
+      "source_sha256": "1533918b88e060586d042b918eed15a87838f50a5395cf670bd0e5fb0796106c",
+      "outputs_sha256": "1c5b81dbac28eb2500e15cb9d33b85498b10c667eb48fa4c71434e5476a5c716"
+    },
+    {
+      "id": "checks-sql",
+      "status": "success",
+      "execution_count": 12,
+      "source_sha256": "71b2f312a15d57fbb5c90767abac86803435daacc5e3ca6c7139db213fb6ecd5",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "validation-result",
+      "status": "success",
+      "execution_count": 13,
+      "source_sha256": "01b444494528632a9c23c0263607850cad14f895f2964965552482c741c0f858",
+      "outputs_sha256": "fefbcdeebf69e38c349df5d729e79d993b03fa456efadf7c0402ea8cf97f905e"
+    },
+    {
+      "id": "cleanup",
+      "status": "success",
+      "execution_count": 14,
+      "source_sha256": "0bf8ca21bff397dab13f7ad55891bec878a67cbd2cf547fa64952761bd499fb2",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ]
+}

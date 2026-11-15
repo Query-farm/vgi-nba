@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "notebook_sha256": "e176994d79556e14dd70881c245d7a5773cc64a96e7a184e4c4770ace1bad9cd",
+  "catalog_sha256": "4095adf53e79f3753d6d1733f4200c4e29380c37dbb81eeb3764087f850fe451",
+  "worker_revision": "e36859a0682d355e889df9e869708ce2bb4e7dcd",
+  "status": "success",
+  "executed_at": "2026-11-15T01:04:07.613199+00:00",
+  "engine": "Haybarn 2.0.0rc11 / community VGI; isolated Python3.13 NBA v0.2.0; shared v0.3.47",
+  "command": "uv run --locked vgi-notebooks 03_keep_rate_units_and_rank_populations.ipynb --timeout 600",
+  "catalog_aliases": [
+    "nba"
+  ],
+  "cells": [
+    {
+      "id": "parameters",
+      "status": "success",
+      "execution_count": 1,
+      "source_sha256": "d038ada0f14e7a0f35754fddf4f52dbbb69e5a94c983e62734898825a67528a6",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "bootstrap",
+      "status": "success",
+      "execution_count": 2,
+      "source_sha256": "a4bf88a5dba2532effd3a5b45b1c7d738355bc9c46a9e5bae4c13537cf0fc6d3",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "setup",
+      "status": "success",
+      "execution_count": 3,
+      "source_sha256": "812a32f534f1eec921745df18b32679c362222f11c7c3b772102964a5481ebb9",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "attach",
+      "status": "success",
+      "execution_count": 4,
+      "source_sha256": "060b7617ebb489804f5c17caa2cf7929634208663aede6e880059f25231f15a3",
+      "outputs_sha256": "c17c19a5c176854762c97c96bafef62f247262c382ecc6533cf998819c105960"
+    },
+    {
+      "id": "team-fetch-sql",
+      "status": "success",
+      "execution_count": 5,
+      "source_sha256": "273bdae214ef42bd382e0ce4032d838dca2ae59ec84e7a770c89acdb273874dc",
+      "outputs_sha256": "23c8940505861b0952ea3eeab2c75a52fa17ba150448cdb4800ec9653ee5050b"
+    },
+    {
+      "id": "teams-sql",
+      "status": "success",
+      "execution_count": 6,
+      "source_sha256": "187248ab0b5adb266324a138e16ec5fe88473f221b7f0920b175b852c64635a0",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "team-plot",
+      "status": "success",
+      "execution_count": 7,
+      "source_sha256": "d6b9fb20ccf52028ab96cd5debd2980eac9962fd362f171b0921f228c1f38f6c",
+      "outputs_sha256": "7913cde6b546a4e8b13ad0812b2e48288b6a8a7a5c02fb6dfcb0ead6bd867932"
+    },
+    {
+      "id": "player-fetch-sql",
+      "status": "success",
+      "execution_count": 8,
+      "source_sha256": "ece5bdbfb05088ee712696152c7c6aa76140bb21f53ecc75f4524b0a2aa58e7e",
+      "outputs_sha256": "3aebf501f17c9480cd5b863e4e9f29e97ebdc9441bc67ae88e0185a4d9cea8ae"
+    },
+    {
+      "id": "players-sql",
+      "status": "success",
+      "execution_count": 9,
+      "source_sha256": "e9c54e41065ea3cd861bc1cea9af416e6541815277ce020e118041d6070fbaf2",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "player-plot",
+      "status": "success",
+      "execution_count": 10,
+      "source_sha256": "cb1aa0b1fc0933fdbba6cb8b2e5ca0d495e90c8ad70fecab6d9c0a0bc69ffadc",
+      "outputs_sha256": "3d06f55c4e60d0fda5dbcd02031ba5fd6708f00a0a27373a17b11d63cb2add4b"
+    },
+    {
+      "id": "checks-sql",
+      "status": "success",
+      "execution_count": 11,
+      "source_sha256": "a165f99c161295d8f173fc1b172b7c5c20549af6c5756fcfdbb910fb5cffdf07",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "validation-result",
+      "status": "success",
+      "execution_count": 12,
+      "source_sha256": "2d16773c1b7de5574a8ff3f889934cc85ac3f7bbc0bf1a5bee7f5c7d8759af26",
+      "outputs_sha256": "8b031336186088bdd9c195326b8626e001648770d950ebf761a32a66efb1cb39"
+    },
+    {
+      "id": "cleanup",
+      "status": "success",
+      "execution_count": 13,
+      "source_sha256": "0bf8ca21bff397dab13f7ad55891bec878a67cbd2cf547fa64952761bd499fb2",
+      "outputs_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ]
+}

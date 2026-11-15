@@ -1,0 +1,938 @@
+{
+  "schema_version": 1,
+  "repository": "Query-farm/vgi-nba",
+  "revision": "e701173571077fc2f3e7a7114cc5c05d87c25a3b",
+  "captured_at": "2026-11-15T00:44:10.688185+00:00",
+  "default_schema": "nba",
+  "scope": "all_public_functions_and_tables",
+  "complete": true,
+  "evidence": [
+    {
+      "path": "coverage/current-functions.json",
+      "sha256": "814eb8cb89700571474c885e8c28f149ef1b4f02f21c8abbcfca216d0e4cfedf",
+      "description": "Complete worker-filtered functions export through actual published Haybarn"
+    },
+    {
+      "path": "coverage/current-tables.json",
+      "sha256": "10160091f8ee10355f8884685fa1e47a1796de3773eb1def446196b9b7f71ebf",
+      "description": "Complete worker-filtered tables export through actual published Haybarn"
+    },
+    {
+      "path": "coverage/current-views.json",
+      "sha256": "4b02e092d6ea2205da3e288047ae8c4b5db56f2a1b5ae8fbc284e8f396cb6327",
+      "description": "Complete worker-filtered views export through actual published Haybarn"
+    }
+  ],
+  "objects": [
+    {
+      "schema": "gleague",
+      "name": "advanced_player_stats",
+      "kind": "function",
+      "signatures": [
+        "advanced_player_stats(VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "advanced_team_stats",
+      "kind": "function",
+      "signatures": [
+        "advanced_team_stats(VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "all_current_player_stats",
+      "kind": "function",
+      "signatures": [
+        "all_current_player_stats()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "all_current_players",
+      "kind": "function",
+      "signatures": [
+        "all_current_players()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "all_current_scoreboard",
+      "kind": "function",
+      "signatures": [
+        "all_current_scoreboard()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "all_current_standings",
+      "kind": "function",
+      "signatures": [
+        "all_current_standings()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "all_current_team_stats",
+      "kind": "function",
+      "signatures": [
+        "all_current_team_stats()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "all_current_teams",
+      "kind": "function",
+      "signatures": [
+        "all_current_teams()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "all_franchise_history",
+      "kind": "function",
+      "signatures": [
+        "all_franchise_history()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "box_score",
+      "kind": "function",
+      "signatures": [
+        "box_score(VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "league_game_log",
+      "kind": "function",
+      "signatures": [
+        "league_game_log(VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "league_leaders",
+      "kind": "function",
+      "signatures": [
+        "league_leaders(VARCHAR, VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "play_by_play",
+      "kind": "function",
+      "signatures": [
+        "play_by_play(VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "player_career_stats",
+      "kind": "function",
+      "signatures": [
+        "player_career_stats(BIGINT, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "player_career_totals",
+      "kind": "function",
+      "signatures": [
+        "player_career_totals(BIGINT, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "player_game_log",
+      "kind": "function",
+      "signatures": [
+        "player_game_log(BIGINT, VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "player_stats",
+      "kind": "function",
+      "signatures": [
+        "player_stats(VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "players",
+      "kind": "function",
+      "signatures": [
+        "players(BOOLEAN)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "scoreboard",
+      "kind": "function",
+      "signatures": [
+        "scoreboard(DATE)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "standings",
+      "kind": "function",
+      "signatures": [
+        "standings(VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "team_roster",
+      "kind": "function",
+      "signatures": [
+        "team_roster(BIGINT, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "team_stats",
+      "kind": "function",
+      "signatures": [
+        "team_stats(VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "advanced_player_stats",
+      "kind": "function",
+      "signatures": [
+        "advanced_player_stats(VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "advanced_team_stats",
+      "kind": "function",
+      "signatures": [
+        "advanced_team_stats(VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "all_current_player_stats",
+      "kind": "function",
+      "signatures": [
+        "all_current_player_stats()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "all_current_players",
+      "kind": "function",
+      "signatures": [
+        "all_current_players()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "all_current_schedule",
+      "kind": "function",
+      "signatures": [
+        "all_current_schedule()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "all_current_scoreboard",
+      "kind": "function",
+      "signatures": [
+        "all_current_scoreboard()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "all_current_standings",
+      "kind": "function",
+      "signatures": [
+        "all_current_standings()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "all_current_team_stats",
+      "kind": "function",
+      "signatures": [
+        "all_current_team_stats()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "all_current_teams",
+      "kind": "function",
+      "signatures": [
+        "all_current_teams()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "all_franchise_history",
+      "kind": "function",
+      "signatures": [
+        "all_franchise_history()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "box_score",
+      "kind": "function",
+      "signatures": [
+        "box_score(VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "league_game_log",
+      "kind": "function",
+      "signatures": [
+        "league_game_log(VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "league_leaders",
+      "kind": "function",
+      "signatures": [
+        "league_leaders(VARCHAR, VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "play_by_play",
+      "kind": "function",
+      "signatures": [
+        "play_by_play(VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "player_career_stats",
+      "kind": "function",
+      "signatures": [
+        "player_career_stats(BIGINT, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "player_career_totals",
+      "kind": "function",
+      "signatures": [
+        "player_career_totals(BIGINT, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "player_game_log",
+      "kind": "function",
+      "signatures": [
+        "player_game_log(BIGINT, VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "player_stats",
+      "kind": "function",
+      "signatures": [
+        "player_stats(VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "players",
+      "kind": "function",
+      "signatures": [
+        "players(BOOLEAN)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "scoreboard",
+      "kind": "function",
+      "signatures": [
+        "scoreboard(DATE)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "standings",
+      "kind": "function",
+      "signatures": [
+        "standings(VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "team_roster",
+      "kind": "function",
+      "signatures": [
+        "team_roster(BIGINT, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "team_stats",
+      "kind": "function",
+      "signatures": [
+        "team_stats(VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "advanced_player_stats",
+      "kind": "function",
+      "signatures": [
+        "advanced_player_stats(VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "advanced_team_stats",
+      "kind": "function",
+      "signatures": [
+        "advanced_team_stats(VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "all_current_player_stats",
+      "kind": "function",
+      "signatures": [
+        "all_current_player_stats()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "all_current_players",
+      "kind": "function",
+      "signatures": [
+        "all_current_players()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "all_current_schedule",
+      "kind": "function",
+      "signatures": [
+        "all_current_schedule()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "all_current_scoreboard",
+      "kind": "function",
+      "signatures": [
+        "all_current_scoreboard()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "all_current_standings",
+      "kind": "function",
+      "signatures": [
+        "all_current_standings()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "all_current_team_stats",
+      "kind": "function",
+      "signatures": [
+        "all_current_team_stats()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "all_current_teams",
+      "kind": "function",
+      "signatures": [
+        "all_current_teams()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "all_franchise_history",
+      "kind": "function",
+      "signatures": [
+        "all_franchise_history()"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "box_score",
+      "kind": "function",
+      "signatures": [
+        "box_score(VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "league_game_log",
+      "kind": "function",
+      "signatures": [
+        "league_game_log(VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "league_leaders",
+      "kind": "function",
+      "signatures": [
+        "league_leaders(VARCHAR, VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "play_by_play",
+      "kind": "function",
+      "signatures": [
+        "play_by_play(VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "player_career_stats",
+      "kind": "function",
+      "signatures": [
+        "player_career_stats(BIGINT, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "player_career_totals",
+      "kind": "function",
+      "signatures": [
+        "player_career_totals(BIGINT, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "player_game_log",
+      "kind": "function",
+      "signatures": [
+        "player_game_log(BIGINT, VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "player_stats",
+      "kind": "function",
+      "signatures": [
+        "player_stats(VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "players",
+      "kind": "function",
+      "signatures": [
+        "players(BOOLEAN)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "scoreboard",
+      "kind": "function",
+      "signatures": [
+        "scoreboard(DATE)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "standings",
+      "kind": "function",
+      "signatures": [
+        "standings(VARCHAR, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "team_roster",
+      "kind": "function",
+      "signatures": [
+        "team_roster(BIGINT, INTEGER)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "team_stats",
+      "kind": "function",
+      "signatures": [
+        "team_stats(VARCHAR, INTEGER, VARCHAR)"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "current_player_stats",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "current_players",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "current_scoreboard",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "current_standings",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "current_team_stats",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "current_teams",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "gleague",
+      "name": "franchise_history",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "current_player_stats",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "current_players",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "current_schedule",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "current_scoreboard",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "current_standings",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "current_team_stats",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "current_teams",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "nba",
+      "name": "franchise_history",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "current_player_stats",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "current_players",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "current_schedule",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "current_scoreboard",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "current_standings",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "current_team_stats",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "current_teams",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    },
+    {
+      "schema": "wnba",
+      "name": "franchise_history",
+      "kind": "table",
+      "signatures": [
+        "TABLE"
+      ],
+      "authentication": "none",
+      "access": "read"
+    }
+  ]
+}

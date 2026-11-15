@@ -1,41 +1,75 @@
-# NBA SQL notebooks
+# NBA Basketball Data notebooks
 
-[Two team rows, one game](01_two_team_rows_one_game.ipynb) pairs team game-log rows, reconciles scores from made shots, and compares FG% with effective FG% before narrowing a close-game threshold. The saved default uses an unchanged, recorded and trimmed NBA Stats response: four team rows for two games on 2025-10-21. The original capture timestamp is unavailable. [Fixture provenance](fixtures/provenance.json) records the source revision, request, scope and SHA-256.
+Four SQL stories make row grain, units and population choices explicit. Each runs the public **v0.2.0** worker through Haybarn; Python handles setup and plotting, while visible SQL retrieves, joins and checks the data.
 
-## Run from this directory
+| Notebook | Question | Inputs | Experiment |
+| --- | --- | --- | --- |
+| [Two team rows, one game](01_two_team_rows_one_game.ipynb) | How do made shots reconcile with the final score, and how does FG% differ from effective FG%? | Four genuine recorded NBA team-game rows | Margin 10→3 points: two games become one |
+| [One score, three levels of detail](02_reconcile_games_events_and_players.ipynb) | Which totals stay fixed when a period filter selects fewer scoring events? | Fictional scoreboard, player box scores and event feeds in three league schemas | Minimum period 4→1: selected points 14→44 |
+| [A ranking belongs to a metric and a population](03_keep_rate_units_and_rank_populations.ipynb) | Does a seed imply the highest net rating, and who qualifies for a local player comparison? | Fictional team and player season cohorts | Minimum games 5→1: eligible players 6→9 |
+| [Count a traded season once](04_count_a_traded_season_once.ipynb) | Can season totals and team stints recover the same career quantity? | Fictional indexes, rosters, career rows and game logs | Prefer season total→team stints: selected rows 6→9, career totals unchanged |
 
-Install [uv](https://docs.astral.sh/uv/), Git, and Python 3.13 or 3.14. Network access is needed for the notebook dependencies, published Haybarn/VGI extension and pinned worker Git revision on first use. Copying this entire `notebooks/` directory is sufficient; the worker source checkout is not required.
+## Run a notebook
 
-```bash
-uv sync --frozen
-uv run --frozen python execute.py
-```
-
-The notebook visibly attaches `uvx --python 3.13 --with vgi-python==0.51.0 --with vgi-rpc==0.53.1 --from git+https://github.com/Query-farm/vgi-nba@5d7bb8011fb035530deda5146446ce29313278bd vgi-nba`. `uvx` fetches that public revision into its own environment. The notebook environment runs Haybarn 2.0.0rc11 and is separately locked. Updating the Git or SDK pins should be followed by default, changed-parameter and live validation.
-
-For interactive use, register the local interpreter and select it in Jupyter:
+Open its Colab badge, or install [uv](https://docs.astral.sh/uv/) and Git and run from this directory:
 
 ```bash
-uv run --frozen python -m ipykernel install --user --name vgi-nba-notebooks --display-name 'Python (vgi-nba notebooks)'
+uv sync --locked
+uv run --locked vgi-notebooks 01_two_team_rows_one_game.ipynb --timeout 600
+uv run --locked vgi-notebooks 02_reconcile_games_events_and_players.ipynb --timeout 600
+uv run --locked vgi-notebooks 03_keep_rate_units_and_rank_populations.ipynb --timeout 600
+uv run --locked vgi-notebooks 04_count_a_traded_season_once.ipynb --timeout 600
 ```
 
-Restart and run all after editing the visible parameters. Python helpers and plotting source are folded; SQL, tables, charts and explanations remain visible. The execution runner uses a temporary kernel, executes with this directory as cwd, and saves only after success. It requires a separate output directory for overrides, rejects unknown parameters and refuses to overwrite the source through `--output-dir`.
+The local environment pins `vgi-example-notebooks[runner]` v0.3.47. A notebook opened alone installs only shared **base** dependencies and fetches the reviewed, hash-verified `nba` companions. It does not install the worker or execution runner into the notebook kernel. First use needs network access for packages, the community VGI extension and the release. The visible connection is:
 
-## Focused experiment and public API
+```sql
+INSTALL vgi FROM community;
+LOAD vgi;
+ATTACH 'nba' (TYPE vgi, LOCATION 'uvx --python 3.13 --from git+https://github.com/Query-farm/vgi-nba@v0.2.0 vgi-nba');
+```
+
+The release declares its own dependencies inside an isolated Python 3.13 environment. The notebook connection starts in UTC with an empty temporary SQL-secret directory and persistent secrets disabled. No credentials are needed. Start each book in a fresh kernel: its loopback server and worker process belong to that run. The helper restores environment variables on cleanup.
+
+For an interactive local kernel:
 
 ```bash
-uv run --frozen python execute.py --parameters '{"MAX_MARGIN":3}' --output-dir validation/margin-three
-uv run --frozen python execute.py --parameters '{"DATA_MODE":"live"}' --output-dir validation/live --timeout 180
+uv run --locked python -m ipykernel install --user --name vgi-nba-notebooks --display-name 'Python (vgi-nba notebooks)'
 ```
 
-The experiment changes only the inclusive final-margin threshold from 10 to 3 points. Replay supports the fixed NBA 2025–26 regular-season team game-log request; the loopback helper rejects other requests. It returns the unchanged fixture through the real worker's supported `NBA_STATS_BASE_URL`. It is not a mock VGI result or an invented live dataset. No credentials are required and no writes are exposed.
+Restart and run all after changing parameters. The shared runner saves only successful runs, rejects unknown parameters, and requires a separate output directory for overrides:
 
-Live mode clears inherited NBA/WNBA URL overrides and the request-interval override, requests the public season endpoint, and filters the same historical date. Public API failures remain errors; there is no automatic replay fallback. The worker documents that the NBA edge may block automated/cloud clients. The run clock is UTC; game dates follow the NBA schedule, and neither is a recorded capture timestamp.
+```bash
+uv run --locked vgi-notebooks 01_two_team_rows_one_game.ipynb --parameters '{"MAX_MARGIN":3}' --output-dir artifacts/margin-three
+uv run --locked vgi-notebooks 02_reconcile_games_events_and_players.ipynb --parameters '{"MIN_PERIOD":1}' --output-dir artifacts/all-periods
+uv run --locked vgi-notebooks 03_keep_rate_units_and_rank_populations.ipynb --parameters '{"MIN_GAMES":1}' --output-dir artifacts/all-players
+uv run --locked vgi-notebooks 04_count_a_traded_season_once.ipynb --parameters '{"USE_SEASON_TOTAL":false}' --output-dir artifacts/team-stints
+```
 
-## Validation and limits
+## Real recording and fictional scenarios
 
-The default, detached margin-three experiment and live run passed. The live request returned 2,460 season team rows and the same four date-filtered rows on 2026-11-14 UTC. Source tests passed (95 tests, 98.75% coverage); packaging, entry points, runtime dependency audit and configured metadata gate passed. Metadata reported 91/100, L1 structural, zero errors/warnings and 103 informational findings; its declared waivers remain unchanged. Docker container validation was unavailable because Docker Desktop could not start.
+Book 01 preserves the repository's unchanged recorded, trimmed NBA Stats response: four team rows for two games on **2025-10-21**. Its original acquisition timestamp is unavailable. [Provenance](fixtures/provenance.json) records the source revision, exact request and SHA-256. The replay serves those bytes through the real worker's supported `NBA_STATS_BASE_URL`; it does not substitute SQL results.
 
-Default and the separately executed margin-three experiment are checked against the real pinned worker. Eleven SQL invariants cover unique team-game keys, complete final-game pairs, opponent labels, point differentials, shot bounds, score identities and exact margin selection. Chart source footers identify the mode and historical date. Replay is a tiny recorded subset, so it does not support league-wide claims or causal conclusions about shooting strategy. Effective FG% excludes free throws and is not a probability.
+Books 02–04 use **entirely fictional local API responses**, generated by [make_synthetic_fixtures.py](make_synthetic_fixtures.py) and stored in [synthetic-responses.json](fixtures/synthetic-responses.json). They are teaching miniatures, not real NBA, WNBA or G League observations. The same numeric IDs deliberately recur across schemas, making league-scoped joins necessary. Game feeds contain only compressed field-goal scoring, not plausible full games. Season cohorts are incomplete by design and support no league-wide claims. Current-player fixtures use explicit activity flags and the worker's current-season request key; they do not represent today's rosters.
 
-Generated validation outputs and extracted chart images are ignored. The saved notebook embeds its default outputs. `execute.py` copies assets, fixture provenance and runtime companions beside experiment copies. [STANDARD.md](STANDARD.md) documents presentation conventions.
+The loopback helper serves only declared HTTP paths and exact query parameters. Each notebook audits every expected request exactly once and rejects unexpected requests. Counts are **1 / 9 / 18 / 12** across books 01–04. Career endpoints and player indexes share cached response bodies across related projections, so 18 covered career surfaces need 12 HTTP requests. All transformations and decisions remain visible SQL.
+
+## Optional bounded public read
+
+Book 01 alone supports live mode:
+
+```bash
+uv run --locked vgi-notebooks 01_two_team_rows_one_game.ipynb --parameters '{"DATA_MODE":"live"}' --output-dir artifacts/live --timeout 600
+```
+
+It clears inherited endpoint and pacing overrides, reads one public NBA 2025–26 regular-season team-game-log response, then filters the same historical date locally. Public failures remain errors; there is no replay fallback. This check succeeded on **2026-11-15 UTC**, returning 2,460 season rows and the same four date-filtered rows as the recording. Future responses and availability may differ; the NBA edge can block automated clients. The run clock is not the original recording's acquisition time. Books 02–04 have no live-data mode.
+
+## Coverage and validation
+
+[coverage.json](coverage.json) maps **46 of 91 distinct public `(schema, name)` surfaces** to visible executed SQL, displayed results and interpretation. Complete runtime exports are retained for release **e36859a0682d355e889df9e869708ce2bb4e7dcd** and current public source **e701173571077fc2f3e7a7114cc5c05d87c25a3b**. Same-named aliases count once; differently named backing scans remain in the denominator. The remaining 45 names are explicitly uncovered. This meets the 46-object target for both catalogs.
+
+The analytical runs execute **v0.2.0**: exact runtime coverage is 46 released names and zero at the separate current revision. Current metadata clarifies that WNBA playoff rank is league-wide rather than conference-specific. These examples show the returned seed without asserting a common cross-league ranking population. Matching current/released interfaces do not claim an analytical execution of current source.
+
+All four defaults and detached notebook-only experiments passed **40 SQL invariants**, exact request audits, eight runner/parameter guards, presentation validation and Ruff. The zero-game margin boundary also passed. Default and experiment figures were reviewed; the fixed team-context and career-reconciliation figures remain byte-identical across their experiments. A fresh preloaded Python 3.12 kernel executed book 04 through base-only bootstrap while preserving pandas 2.2.3, Matplotlib 3.10.0, IPython 8.30.0, ipykernel 6.17.1 and jupyter-client 7.4.9; `pip check` passed. This is a local compatibility test, not a claim of a manually tested hosted Colab session.
+
+Worker source and root lock remain unchanged. The existing [green source CI](https://github.com/Query-farm/vgi-nba/actions/runs/43636808659) is reused; this notebook-only revision does not repeat worker builds or full source suites. SVGs under `charts/` are saved reader artifacts. Temporary validation logs, PNG previews, experiment copies and bootstrap caches are ignored. Presentation follows the [shared standard](https://github.com/Query-farm/vgi-example-notebooks/blob/v0.3.47/docs/standard.md).
