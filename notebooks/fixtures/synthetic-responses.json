@@ -1,0 +1,3046 @@
+{
+  "schema_version": 1,
+  "provenance": "Entirely synthetic miniature scenarios. Fictional people, teams, IDs and observations; not league records or live responses. League namespaces exercise the released parser only.",
+  "generator": "make_synthetic_fixtures.py",
+  "routes": [
+    {
+      "id": "nba-scoreboardv3",
+      "scenario": "games",
+      "path": "/stats/scoreboardv3",
+      "parameters": {
+        "LeagueID": "00",
+        "GameDate": "2025-10-21"
+      },
+      "body": {
+        "scoreboard": {
+          "gameDate": "2025-10-21",
+          "games": [
+            {
+              "homeTeam": {
+                "teamId": 7001,
+                "teamName": "Fictional AAA",
+                "teamCity": "Example",
+                "teamTricode": "AAA",
+                "score": 9
+              },
+              "awayTeam": {
+                "teamId": 7002,
+                "teamName": "Fictional BBB",
+                "teamCity": "Example",
+                "teamTricode": "BBB",
+                "score": 6
+              },
+              "gameId": "0022500001",
+              "gameStatus": 3,
+              "gameStatusText": "Final (synthetic miniature)",
+              "period": 4,
+              "gameTimeUTC": "2025-10-21T23:00:00Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "nba-boxscoretraditionalv3",
+      "scenario": "games",
+      "path": "/stats/boxscoretraditionalv3",
+      "parameters": {
+        "GameID": "0022500001",
+        "StartPeriod": "0",
+        "EndPeriod": "0",
+        "StartRange": "0",
+        "EndRange": "0",
+        "RangeType": "0"
+      },
+      "body": {
+        "boxScoreTraditional": {
+          "gameId": "0022500001",
+          "homeTeam": {
+            "teamId": 7001,
+            "teamName": "Fictional AAA",
+            "teamCity": "Example",
+            "teamTricode": "AAA",
+            "score": 9,
+            "players": [
+              {
+                "personId": 9001,
+                "firstName": "Fictional",
+                "familyName": "9001",
+                "position": "G",
+                "statistics": {
+                  "points": 4,
+                  "minutes": "18:30"
+                }
+              },
+              {
+                "personId": 9002,
+                "firstName": "Fictional",
+                "familyName": "9002",
+                "position": "G",
+                "statistics": {
+                  "points": 5,
+                  "minutes": "18:30"
+                }
+              }
+            ]
+          },
+          "awayTeam": {
+            "teamId": 7002,
+            "teamName": "Fictional BBB",
+            "teamCity": "Example",
+            "teamTricode": "BBB",
+            "score": 6,
+            "players": [
+              {
+                "personId": 9011,
+                "firstName": "Fictional",
+                "familyName": "9011",
+                "position": "G",
+                "statistics": {
+                  "points": 3,
+                  "minutes": "18:30"
+                }
+              },
+              {
+                "personId": 9012,
+                "firstName": "Fictional",
+                "familyName": "9012",
+                "position": "G",
+                "statistics": {
+                  "points": 3,
+                  "minutes": "18:30"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "nba-playbyplayv3",
+      "scenario": "games",
+      "path": "/stats/playbyplayv3",
+      "parameters": {
+        "GameID": "0022500001",
+        "StartPeriod": "0",
+        "EndPeriod": "0"
+      },
+      "body": {
+        "game": {
+          "gameId": "0022500001",
+          "actions": [
+            {
+              "actionId": 1,
+              "actionNumber": 2,
+              "period": 1,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9001,
+              "playerName": "Fictional 9001",
+              "actionType": "Made Shot",
+              "description": "Synthetic 2-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 2,
+              "scoreHome": "2",
+              "scoreAway": "0",
+              "location": "h"
+            },
+            {
+              "actionId": 2,
+              "actionNumber": 4,
+              "period": 1,
+              "clock": "PT01M00.00S",
+              "teamId": 7002,
+              "teamTricode": "BBB",
+              "personId": 9011,
+              "playerName": "Fictional 9011",
+              "actionType": "Made Shot",
+              "description": "Synthetic 3-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 3,
+              "scoreHome": "2",
+              "scoreAway": "3",
+              "location": "v"
+            },
+            {
+              "actionId": 3,
+              "actionNumber": 6,
+              "period": 2,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9002,
+              "playerName": "Fictional 9002",
+              "actionType": "Made Shot",
+              "description": "Synthetic 3-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 3,
+              "scoreHome": "5",
+              "scoreAway": "3",
+              "location": "h"
+            },
+            {
+              "actionId": 4,
+              "actionNumber": 8,
+              "period": 3,
+              "clock": "PT01M00.00S",
+              "teamId": 7002,
+              "teamTricode": "BBB",
+              "personId": 9012,
+              "playerName": "Fictional 9012",
+              "actionType": "Made Shot",
+              "description": "Synthetic 3-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 3,
+              "scoreHome": "5",
+              "scoreAway": "6",
+              "location": "v"
+            },
+            {
+              "actionId": 5,
+              "actionNumber": 10,
+              "period": 4,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9001,
+              "playerName": "Fictional 9001",
+              "actionType": "Made Shot",
+              "description": "Synthetic 2-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 2,
+              "scoreHome": "7",
+              "scoreAway": "6",
+              "location": "h"
+            },
+            {
+              "actionId": 6,
+              "actionNumber": 12,
+              "period": 4,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9002,
+              "playerName": "Fictional 9002",
+              "actionType": "Made Shot",
+              "description": "Synthetic 2-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 2,
+              "scoreHome": "9",
+              "scoreAway": "6",
+              "location": "h"
+            },
+            {
+              "actionId": 7,
+              "actionNumber": 12,
+              "period": 4,
+              "clock": "PT00M30.00S",
+              "teamId": 7002,
+              "teamTricode": "BBB",
+              "personId": 9011,
+              "playerName": "Fictional 9011",
+              "actionType": "Missed Shot",
+              "description": "Synthetic missed shot; same action number, distinct event ID",
+              "isFieldGoal": 1,
+              "shotResult": "Missed",
+              "shotValue": 3,
+              "scoreHome": "",
+              "scoreAway": "",
+              "location": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "nba-leaguestandingsv3",
+      "scenario": "rates",
+      "path": "/stats/leaguestandingsv3",
+      "parameters": {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "Standings",
+            "headers": [
+              "TeamID",
+              "TeamCity",
+              "TeamName",
+              "Conference",
+              "PlayoffRank",
+              "WINS",
+              "LOSSES",
+              "WinPCT",
+              "PointsPG"
+            ],
+            "rowSet": [
+              [
+                7001,
+                "Example",
+                "Alpha",
+                "Example",
+                1,
+                8,
+                2,
+                0.8,
+                100
+              ],
+              [
+                7002,
+                "Example",
+                "Birch",
+                "Example",
+                2,
+                6,
+                4,
+                0.6,
+                104
+              ],
+              [
+                7003,
+                "Example",
+                "Cedar",
+                "Example",
+                3,
+                4,
+                6,
+                0.4,
+                98
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nba-leaguedashteamstats-Base",
+      "scenario": "rates",
+      "path": "/stats/leaguedashteamstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Base"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashTeamStats",
+            "headers": [
+              "TEAM_ID",
+              "TEAM_NAME",
+              "GP",
+              "W",
+              "L",
+              "PTS",
+              "FGM",
+              "FGA",
+              "FG_PCT",
+              "FG3M",
+              "FG3A",
+              "FG3_PCT",
+              "FTM",
+              "FTA"
+            ],
+            "rowSet": [
+              [
+                7001,
+                "Alpha",
+                10,
+                8,
+                2,
+                100,
+                38,
+                80,
+                0.475,
+                10,
+                28,
+                0.35714285714285715,
+                14,
+                18
+              ],
+              [
+                7002,
+                "Birch",
+                10,
+                6,
+                4,
+                104,
+                38,
+                80,
+                0.475,
+                10,
+                28,
+                0.35714285714285715,
+                18,
+                22
+              ],
+              [
+                7003,
+                "Cedar",
+                10,
+                4,
+                6,
+                98,
+                38,
+                80,
+                0.475,
+                10,
+                28,
+                0.35714285714285715,
+                12,
+                16
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nba-leaguedashteamstats-Advanced",
+      "scenario": "rates",
+      "path": "/stats/leaguedashteamstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Advanced"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashTeamStats",
+            "headers": [
+              "TEAM_ID",
+              "TEAM_NAME",
+              "GP",
+              "W",
+              "L",
+              "OFF_RATING",
+              "DEF_RATING",
+              "NET_RATING",
+              "PACE",
+              "TS_PCT"
+            ],
+            "rowSet": [
+              [
+                7001,
+                "Alpha",
+                10,
+                8,
+                2,
+                112,
+                110,
+                2,
+                95,
+                0.55
+              ],
+              [
+                7002,
+                "Birch",
+                10,
+                6,
+                4,
+                115,
+                110,
+                5,
+                96,
+                0.5700000000000001
+              ],
+              [
+                7003,
+                "Cedar",
+                10,
+                4,
+                6,
+                109,
+                110,
+                -1,
+                97,
+                0.5900000000000001
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nba-leaguedashplayerstats-Base",
+      "scenario": "rates",
+      "path": "/stats/leaguedashplayerstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Base"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashPlayerStats",
+            "headers": [
+              "PLAYER_ID",
+              "PLAYER_NAME",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION",
+              "GP",
+              "PTS",
+              "MIN",
+              "TEAM_COUNT"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                7001,
+                "AAA",
+                4,
+                30,
+                30,
+                1
+              ],
+              [
+                9002,
+                "Bea North",
+                7002,
+                "BBB",
+                10,
+                24,
+                30,
+                1
+              ],
+              [
+                9003,
+                "Cam Drift",
+                7003,
+                "CCC",
+                10,
+                20,
+                30,
+                1
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nba-leaguedashplayerstats-Advanced",
+      "scenario": "rates",
+      "path": "/stats/leaguedashplayerstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Advanced"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashPlayerStats",
+            "headers": [
+              "PLAYER_ID",
+              "PLAYER_NAME",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION",
+              "GP",
+              "TS_PCT",
+              "USG_PCT"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                7001,
+                "AAA",
+                4,
+                0.65,
+                0.35
+              ],
+              [
+                9002,
+                "Bea North",
+                7002,
+                "BBB",
+                10,
+                0.55,
+                0.25
+              ],
+              [
+                9003,
+                "Cam Drift",
+                7003,
+                "CCC",
+                10,
+                0.6,
+                0.2
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nba-leagueleaders",
+      "scenario": "rates",
+      "path": "/stats/leagueleaders",
+      "parameters": {
+        "LeagueID": "00",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "Scope": "S",
+        "StatCategory": "PTS"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueLeaders",
+            "headers": [
+              "PLAYER_ID",
+              "PLAYER",
+              "TEAM_ID",
+              "TEAM",
+              "GP",
+              "PTS",
+              "RANK"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                7001,
+                "AAA",
+                4,
+                30,
+                1
+              ],
+              [
+                9002,
+                "Bea North",
+                7002,
+                "BBB",
+                10,
+                24,
+                2
+              ],
+              [
+                9003,
+                "Cam Drift",
+                7003,
+                "CCC",
+                10,
+                20,
+                3
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nba-commonallplayers",
+      "scenario": "career",
+      "path": "/stats/commonallplayers",
+      "parameters": {
+        "LeagueID": "00",
+        "Season": "CURRENT",
+        "IsOnlyCurrentSeason": "0"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "CommonAllPlayers",
+            "headers": [
+              "PERSON_ID",
+              "DISPLAY_FIRST_LAST",
+              "ROSTERSTATUS",
+              "FROM_YEAR",
+              "TO_YEAR",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                1,
+                2024,
+                2025,
+                7001,
+                "AAA"
+              ],
+              [
+                9002,
+                "Bea North",
+                1,
+                2024,
+                2025,
+                7001,
+                "AAA"
+              ],
+              [
+                9003,
+                "Cam Drift",
+                0,
+                2024,
+                2025,
+                7003,
+                "CCC"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nba-commonteamroster",
+      "scenario": "career",
+      "path": "/stats/commonteamroster",
+      "parameters": {
+        "TeamID": "7001",
+        "LeagueID": "00",
+        "Season": "2025-26"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "CommonTeamRoster",
+            "headers": [
+              "TeamID",
+              "PLAYER_ID",
+              "PLAYER",
+              "POSITION",
+              "HEIGHT",
+              "EXP"
+            ],
+            "rowSet": [
+              [
+                7001,
+                9001,
+                "Ada Vale",
+                "G",
+                "6-0",
+                "1"
+              ],
+              [
+                7001,
+                9002,
+                "Bea North",
+                "G",
+                "6-0",
+                "1"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nba-playercareerstats",
+      "scenario": "career",
+      "path": "/stats/playercareerstats",
+      "parameters": {
+        "PlayerID": "9001",
+        "PerMode": "Totals",
+        "LeagueID": "00"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "SeasonTotalsRegularSeason",
+            "headers": [
+              "PLAYER_ID",
+              "SEASON_ID",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION",
+              "GP",
+              "PTS"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "2024-25",
+                7001,
+                "AAA",
+                3,
+                60
+              ],
+              [
+                9001,
+                "2025-26",
+                7001,
+                "AAA",
+                2,
+                40
+              ],
+              [
+                9001,
+                "2025-26",
+                7002,
+                "BBB",
+                3,
+                60
+              ],
+              [
+                9001,
+                "2025-26",
+                0,
+                "TOT",
+                5,
+                100
+              ]
+            ]
+          },
+          {
+            "name": "CareerTotalsRegularSeason",
+            "headers": [
+              "PLAYER_ID",
+              "GP",
+              "PTS"
+            ],
+            "rowSet": [
+              [
+                9001,
+                8,
+                160
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nba-playergamelog",
+      "scenario": "career",
+      "path": "/stats/playergamelog",
+      "parameters": {
+        "PlayerID": "9001",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "LeagueID": "00"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "PlayerGameLog",
+            "headers": [
+              "Player_ID",
+              "Game_ID",
+              "GAME_DATE",
+              "MATCHUP",
+              "WL",
+              "PTS"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "0022500001",
+                "2025-10-21",
+                "AAA vs. CCC",
+                "W",
+                10
+              ],
+              [
+                9001,
+                "0022500002",
+                "2025-10-22",
+                "AAA vs. CCC",
+                "W",
+                30
+              ],
+              [
+                9001,
+                "0022500003",
+                "2025-10-23",
+                "BBB vs. CCC",
+                "W",
+                20
+              ],
+              [
+                9001,
+                "0022500004",
+                "2025-10-24",
+                "BBB vs. CCC",
+                "W",
+                25
+              ],
+              [
+                9001,
+                "0022500005",
+                "2025-10-25",
+                "BBB vs. CCC",
+                "W",
+                15
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wnba-scoreboardv3",
+      "scenario": "games",
+      "path": "/stats/scoreboardv3",
+      "parameters": {
+        "LeagueID": "10",
+        "GameDate": "2025-10-21"
+      },
+      "body": {
+        "scoreboard": {
+          "gameDate": "2025-10-21",
+          "games": [
+            {
+              "homeTeam": {
+                "teamId": 7001,
+                "teamName": "Fictional AAA",
+                "teamCity": "Example",
+                "teamTricode": "AAA",
+                "score": 10
+              },
+              "awayTeam": {
+                "teamId": 7002,
+                "teamName": "Fictional BBB",
+                "teamCity": "Example",
+                "teamTricode": "BBB",
+                "score": 5
+              },
+              "gameId": "1022500001",
+              "gameStatus": 3,
+              "gameStatusText": "Final (synthetic miniature)",
+              "period": 4,
+              "gameTimeUTC": "2025-10-21T23:00:00Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "wnba-boxscoretraditionalv3",
+      "scenario": "games",
+      "path": "/stats/boxscoretraditionalv3",
+      "parameters": {
+        "GameID": "1022500001",
+        "StartPeriod": "0",
+        "EndPeriod": "0",
+        "StartRange": "0",
+        "EndRange": "0",
+        "RangeType": "0"
+      },
+      "body": {
+        "boxScoreTraditional": {
+          "gameId": "1022500001",
+          "homeTeam": {
+            "teamId": 7001,
+            "teamName": "Fictional AAA",
+            "teamCity": "Example",
+            "teamTricode": "AAA",
+            "score": 10,
+            "players": [
+              {
+                "personId": 9001,
+                "firstName": "Fictional",
+                "familyName": "9001",
+                "position": "G",
+                "statistics": {
+                  "points": 6,
+                  "minutes": "18:30"
+                }
+              },
+              {
+                "personId": 9002,
+                "firstName": "Fictional",
+                "familyName": "9002",
+                "position": "G",
+                "statistics": {
+                  "points": 4,
+                  "minutes": "18:30"
+                }
+              }
+            ]
+          },
+          "awayTeam": {
+            "teamId": 7002,
+            "teamName": "Fictional BBB",
+            "teamCity": "Example",
+            "teamTricode": "BBB",
+            "score": 5,
+            "players": [
+              {
+                "personId": 9011,
+                "firstName": "Fictional",
+                "familyName": "9011",
+                "position": "G",
+                "statistics": {
+                  "points": 2,
+                  "minutes": "18:30"
+                }
+              },
+              {
+                "personId": 9012,
+                "firstName": "Fictional",
+                "familyName": "9012",
+                "position": "G",
+                "statistics": {
+                  "points": 3,
+                  "minutes": "18:30"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "wnba-playbyplayv3",
+      "scenario": "games",
+      "path": "/stats/playbyplayv3",
+      "parameters": {
+        "GameID": "1022500001",
+        "StartPeriod": "0",
+        "EndPeriod": "0"
+      },
+      "body": {
+        "game": {
+          "gameId": "1022500001",
+          "actions": [
+            {
+              "actionId": 1,
+              "actionNumber": 2,
+              "period": 1,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9001,
+              "playerName": "Fictional 9001",
+              "actionType": "Made Shot",
+              "description": "Synthetic 3-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 3,
+              "scoreHome": "3",
+              "scoreAway": "0",
+              "location": "h"
+            },
+            {
+              "actionId": 2,
+              "actionNumber": 4,
+              "period": 1,
+              "clock": "PT01M00.00S",
+              "teamId": 7002,
+              "teamTricode": "BBB",
+              "personId": 9011,
+              "playerName": "Fictional 9011",
+              "actionType": "Made Shot",
+              "description": "Synthetic 2-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 2,
+              "scoreHome": "3",
+              "scoreAway": "2",
+              "location": "v"
+            },
+            {
+              "actionId": 3,
+              "actionNumber": 6,
+              "period": 2,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9002,
+              "playerName": "Fictional 9002",
+              "actionType": "Made Shot",
+              "description": "Synthetic 2-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 2,
+              "scoreHome": "5",
+              "scoreAway": "2",
+              "location": "h"
+            },
+            {
+              "actionId": 4,
+              "actionNumber": 8,
+              "period": 3,
+              "clock": "PT01M00.00S",
+              "teamId": 7002,
+              "teamTricode": "BBB",
+              "personId": 9012,
+              "playerName": "Fictional 9012",
+              "actionType": "Made Shot",
+              "description": "Synthetic 3-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 3,
+              "scoreHome": "5",
+              "scoreAway": "5",
+              "location": "v"
+            },
+            {
+              "actionId": 5,
+              "actionNumber": 10,
+              "period": 4,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9001,
+              "playerName": "Fictional 9001",
+              "actionType": "Made Shot",
+              "description": "Synthetic 3-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 3,
+              "scoreHome": "8",
+              "scoreAway": "5",
+              "location": "h"
+            },
+            {
+              "actionId": 6,
+              "actionNumber": 12,
+              "period": 4,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9002,
+              "playerName": "Fictional 9002",
+              "actionType": "Made Shot",
+              "description": "Synthetic 2-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 2,
+              "scoreHome": "10",
+              "scoreAway": "5",
+              "location": "h"
+            },
+            {
+              "actionId": 7,
+              "actionNumber": 12,
+              "period": 4,
+              "clock": "PT00M30.00S",
+              "teamId": 7002,
+              "teamTricode": "BBB",
+              "personId": 9011,
+              "playerName": "Fictional 9011",
+              "actionType": "Missed Shot",
+              "description": "Synthetic missed shot; same action number, distinct event ID",
+              "isFieldGoal": 1,
+              "shotResult": "Missed",
+              "shotValue": 3,
+              "scoreHome": "",
+              "scoreAway": "",
+              "location": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "wnba-leaguestandingsv3",
+      "scenario": "rates",
+      "path": "/stats/leaguestandingsv3",
+      "parameters": {
+        "LeagueID": "10",
+        "Season": "2025",
+        "SeasonType": "Regular Season"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "Standings",
+            "headers": [
+              "TeamID",
+              "TeamCity",
+              "TeamName",
+              "Conference",
+              "PlayoffRank",
+              "WINS",
+              "LOSSES",
+              "WinPCT",
+              "PointsPG"
+            ],
+            "rowSet": [
+              [
+                7001,
+                "Example",
+                "Alpha",
+                "Example",
+                1,
+                8,
+                2,
+                0.8,
+                101
+              ],
+              [
+                7002,
+                "Example",
+                "Birch",
+                "Example",
+                2,
+                6,
+                4,
+                0.6,
+                105
+              ],
+              [
+                7003,
+                "Example",
+                "Cedar",
+                "Example",
+                3,
+                4,
+                6,
+                0.4,
+                99
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wnba-leaguedashteamstats-Base",
+      "scenario": "rates",
+      "path": "/stats/leaguedashteamstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "10",
+        "Season": "2025",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Base"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashTeamStats",
+            "headers": [
+              "TEAM_ID",
+              "TEAM_NAME",
+              "GP",
+              "W",
+              "L",
+              "PTS",
+              "FGM",
+              "FGA",
+              "FG_PCT",
+              "FG3M",
+              "FG3A",
+              "FG3_PCT",
+              "FTM",
+              "FTA"
+            ],
+            "rowSet": [
+              [
+                7001,
+                "Alpha",
+                10,
+                8,
+                2,
+                101,
+                38,
+                80,
+                0.475,
+                10,
+                28,
+                0.35714285714285715,
+                15,
+                19
+              ],
+              [
+                7002,
+                "Birch",
+                10,
+                6,
+                4,
+                105,
+                38,
+                80,
+                0.475,
+                10,
+                28,
+                0.35714285714285715,
+                19,
+                23
+              ],
+              [
+                7003,
+                "Cedar",
+                10,
+                4,
+                6,
+                99,
+                38,
+                80,
+                0.475,
+                10,
+                28,
+                0.35714285714285715,
+                13,
+                17
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wnba-leaguedashteamstats-Advanced",
+      "scenario": "rates",
+      "path": "/stats/leaguedashteamstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "10",
+        "Season": "2025",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Advanced"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashTeamStats",
+            "headers": [
+              "TEAM_ID",
+              "TEAM_NAME",
+              "GP",
+              "W",
+              "L",
+              "OFF_RATING",
+              "DEF_RATING",
+              "NET_RATING",
+              "PACE",
+              "TS_PCT"
+            ],
+            "rowSet": [
+              [
+                7001,
+                "Alpha",
+                10,
+                8,
+                2,
+                115,
+                110,
+                5,
+                97,
+                0.55
+              ],
+              [
+                7002,
+                "Birch",
+                10,
+                6,
+                4,
+                109,
+                110,
+                -1,
+                98,
+                0.5700000000000001
+              ],
+              [
+                7003,
+                "Cedar",
+                10,
+                4,
+                6,
+                112,
+                110,
+                2,
+                99,
+                0.5900000000000001
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wnba-leaguedashplayerstats-Base",
+      "scenario": "rates",
+      "path": "/stats/leaguedashplayerstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "10",
+        "Season": "2025",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Base"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashPlayerStats",
+            "headers": [
+              "PLAYER_ID",
+              "PLAYER_NAME",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION",
+              "GP",
+              "PTS",
+              "MIN",
+              "TEAM_COUNT"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                7001,
+                "AAA",
+                4,
+                31,
+                30,
+                1
+              ],
+              [
+                9002,
+                "Bea North",
+                7002,
+                "BBB",
+                10,
+                25,
+                30,
+                1
+              ],
+              [
+                9003,
+                "Cam Drift",
+                7003,
+                "CCC",
+                10,
+                21,
+                30,
+                1
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wnba-leaguedashplayerstats-Advanced",
+      "scenario": "rates",
+      "path": "/stats/leaguedashplayerstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "10",
+        "Season": "2025",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Advanced"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashPlayerStats",
+            "headers": [
+              "PLAYER_ID",
+              "PLAYER_NAME",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION",
+              "GP",
+              "TS_PCT",
+              "USG_PCT"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                7001,
+                "AAA",
+                4,
+                0.65,
+                0.35
+              ],
+              [
+                9002,
+                "Bea North",
+                7002,
+                "BBB",
+                10,
+                0.55,
+                0.25
+              ],
+              [
+                9003,
+                "Cam Drift",
+                7003,
+                "CCC",
+                10,
+                0.6,
+                0.2
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wnba-leagueleaders",
+      "scenario": "rates",
+      "path": "/stats/leagueleaders",
+      "parameters": {
+        "LeagueID": "10",
+        "Season": "2025",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "Scope": "S",
+        "StatCategory": "PTS"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueLeaders",
+            "headers": [
+              "PLAYER_ID",
+              "PLAYER",
+              "TEAM_ID",
+              "TEAM",
+              "GP",
+              "PTS",
+              "RANK"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                7001,
+                "AAA",
+                4,
+                31,
+                1
+              ],
+              [
+                9002,
+                "Bea North",
+                7002,
+                "BBB",
+                10,
+                25,
+                2
+              ],
+              [
+                9003,
+                "Cam Drift",
+                7003,
+                "CCC",
+                10,
+                21,
+                3
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wnba-commonallplayers",
+      "scenario": "career",
+      "path": "/stats/commonallplayers",
+      "parameters": {
+        "LeagueID": "10",
+        "Season": "CURRENT",
+        "IsOnlyCurrentSeason": "0"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "CommonAllPlayers",
+            "headers": [
+              "PERSON_ID",
+              "DISPLAY_FIRST_LAST",
+              "ROSTERSTATUS",
+              "FROM_YEAR",
+              "TO_YEAR",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                1,
+                2024,
+                2025,
+                7001,
+                "AAA"
+              ],
+              [
+                9002,
+                "Bea North",
+                1,
+                2024,
+                2025,
+                7001,
+                "AAA"
+              ],
+              [
+                9003,
+                "Cam Drift",
+                0,
+                2024,
+                2025,
+                7003,
+                "CCC"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wnba-commonteamroster",
+      "scenario": "career",
+      "path": "/stats/commonteamroster",
+      "parameters": {
+        "TeamID": "7001",
+        "LeagueID": "10",
+        "Season": "2025"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "CommonTeamRoster",
+            "headers": [
+              "TeamID",
+              "PLAYER_ID",
+              "PLAYER",
+              "POSITION",
+              "HEIGHT",
+              "EXP"
+            ],
+            "rowSet": [
+              [
+                7001,
+                9001,
+                "Ada Vale",
+                "G",
+                "6-0",
+                "1"
+              ],
+              [
+                7001,
+                9002,
+                "Bea North",
+                "G",
+                "6-0",
+                "1"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wnba-playercareerstats",
+      "scenario": "career",
+      "path": "/stats/playercareerstats",
+      "parameters": {
+        "PlayerID": "9001",
+        "PerMode": "Totals",
+        "LeagueID": "10"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "SeasonTotalsRegularSeason",
+            "headers": [
+              "PLAYER_ID",
+              "SEASON_ID",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION",
+              "GP",
+              "PTS"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "2024",
+                7001,
+                "AAA",
+                3,
+                60
+              ],
+              [
+                9001,
+                "2025",
+                7001,
+                "AAA",
+                2,
+                40
+              ],
+              [
+                9001,
+                "2025",
+                7002,
+                "BBB",
+                3,
+                60
+              ],
+              [
+                9001,
+                "2025",
+                0,
+                "TOT",
+                5,
+                100
+              ]
+            ]
+          },
+          {
+            "name": "CareerTotalsRegularSeason",
+            "headers": [
+              "PLAYER_ID",
+              "GP",
+              "PTS"
+            ],
+            "rowSet": [
+              [
+                9001,
+                8,
+                160
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wnba-playergamelog",
+      "scenario": "career",
+      "path": "/stats/playergamelog",
+      "parameters": {
+        "PlayerID": "9001",
+        "Season": "2025",
+        "SeasonType": "Regular Season",
+        "LeagueID": "10"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "PlayerGameLog",
+            "headers": [
+              "Player_ID",
+              "Game_ID",
+              "GAME_DATE",
+              "MATCHUP",
+              "WL",
+              "PTS"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "1022500001",
+                "2025-10-21",
+                "AAA vs. CCC",
+                "W",
+                10
+              ],
+              [
+                9001,
+                "1022500002",
+                "2025-10-22",
+                "AAA vs. CCC",
+                "W",
+                30
+              ],
+              [
+                9001,
+                "1022500003",
+                "2025-10-23",
+                "BBB vs. CCC",
+                "W",
+                20
+              ],
+              [
+                9001,
+                "1022500004",
+                "2025-10-24",
+                "BBB vs. CCC",
+                "W",
+                25
+              ],
+              [
+                9001,
+                "1022500005",
+                "2025-10-25",
+                "BBB vs. CCC",
+                "W",
+                15
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gleague-scoreboardv3",
+      "scenario": "games",
+      "path": "/stats/scoreboardv3",
+      "parameters": {
+        "LeagueID": "20",
+        "GameDate": "2025-10-21"
+      },
+      "body": {
+        "scoreboard": {
+          "gameDate": "2025-10-21",
+          "games": [
+            {
+              "homeTeam": {
+                "teamId": 7001,
+                "teamName": "Fictional AAA",
+                "teamCity": "Example",
+                "teamTricode": "AAA",
+                "score": 9
+              },
+              "awayTeam": {
+                "teamId": 7002,
+                "teamName": "Fictional BBB",
+                "teamCity": "Example",
+                "teamTricode": "BBB",
+                "score": 5
+              },
+              "gameId": "2022500001",
+              "gameStatus": 3,
+              "gameStatusText": "Final (synthetic miniature)",
+              "period": 4,
+              "gameTimeUTC": "2025-10-21T23:00:00Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "gleague-boxscoretraditionalv3",
+      "scenario": "games",
+      "path": "/stats/boxscoretraditionalv3",
+      "parameters": {
+        "GameID": "2022500001",
+        "StartPeriod": "0",
+        "EndPeriod": "0",
+        "StartRange": "0",
+        "EndRange": "0",
+        "RangeType": "0"
+      },
+      "body": {
+        "boxScoreTraditional": {
+          "gameId": "2022500001",
+          "homeTeam": {
+            "teamId": 7001,
+            "teamName": "Fictional AAA",
+            "teamCity": "Example",
+            "teamTricode": "AAA",
+            "score": 9,
+            "players": [
+              {
+                "personId": 9001,
+                "firstName": "Fictional",
+                "familyName": "9001",
+                "position": "G",
+                "statistics": {
+                  "points": 4,
+                  "minutes": "18:30"
+                }
+              },
+              {
+                "personId": 9002,
+                "firstName": "Fictional",
+                "familyName": "9002",
+                "position": "G",
+                "statistics": {
+                  "points": 5,
+                  "minutes": "18:30"
+                }
+              }
+            ]
+          },
+          "awayTeam": {
+            "teamId": 7002,
+            "teamName": "Fictional BBB",
+            "teamCity": "Example",
+            "teamTricode": "BBB",
+            "score": 5,
+            "players": [
+              {
+                "personId": 9011,
+                "firstName": "Fictional",
+                "familyName": "9011",
+                "position": "G",
+                "statistics": {
+                  "points": 3,
+                  "minutes": "18:30"
+                }
+              },
+              {
+                "personId": 9012,
+                "firstName": "Fictional",
+                "familyName": "9012",
+                "position": "G",
+                "statistics": {
+                  "points": 2,
+                  "minutes": "18:30"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "gleague-playbyplayv3",
+      "scenario": "games",
+      "path": "/stats/playbyplayv3",
+      "parameters": {
+        "GameID": "2022500001",
+        "StartPeriod": "0",
+        "EndPeriod": "0"
+      },
+      "body": {
+        "game": {
+          "gameId": "2022500001",
+          "actions": [
+            {
+              "actionId": 1,
+              "actionNumber": 2,
+              "period": 1,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9001,
+              "playerName": "Fictional 9001",
+              "actionType": "Made Shot",
+              "description": "Synthetic 2-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 2,
+              "scoreHome": "2",
+              "scoreAway": "0",
+              "location": "h"
+            },
+            {
+              "actionId": 2,
+              "actionNumber": 4,
+              "period": 1,
+              "clock": "PT01M00.00S",
+              "teamId": 7002,
+              "teamTricode": "BBB",
+              "personId": 9011,
+              "playerName": "Fictional 9011",
+              "actionType": "Made Shot",
+              "description": "Synthetic 3-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 3,
+              "scoreHome": "2",
+              "scoreAway": "3",
+              "location": "v"
+            },
+            {
+              "actionId": 3,
+              "actionNumber": 6,
+              "period": 2,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9002,
+              "playerName": "Fictional 9002",
+              "actionType": "Made Shot",
+              "description": "Synthetic 2-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 2,
+              "scoreHome": "4",
+              "scoreAway": "3",
+              "location": "h"
+            },
+            {
+              "actionId": 4,
+              "actionNumber": 8,
+              "period": 3,
+              "clock": "PT01M00.00S",
+              "teamId": 7002,
+              "teamTricode": "BBB",
+              "personId": 9012,
+              "playerName": "Fictional 9012",
+              "actionType": "Made Shot",
+              "description": "Synthetic 2-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 2,
+              "scoreHome": "4",
+              "scoreAway": "5",
+              "location": "v"
+            },
+            {
+              "actionId": 5,
+              "actionNumber": 10,
+              "period": 4,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9001,
+              "playerName": "Fictional 9001",
+              "actionType": "Made Shot",
+              "description": "Synthetic 2-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 2,
+              "scoreHome": "6",
+              "scoreAway": "5",
+              "location": "h"
+            },
+            {
+              "actionId": 6,
+              "actionNumber": 12,
+              "period": 4,
+              "clock": "PT01M00.00S",
+              "teamId": 7001,
+              "teamTricode": "AAA",
+              "personId": 9002,
+              "playerName": "Fictional 9002",
+              "actionType": "Made Shot",
+              "description": "Synthetic 3-point basket",
+              "isFieldGoal": 1,
+              "shotResult": "Made",
+              "shotValue": 3,
+              "scoreHome": "9",
+              "scoreAway": "5",
+              "location": "h"
+            },
+            {
+              "actionId": 7,
+              "actionNumber": 12,
+              "period": 4,
+              "clock": "PT00M30.00S",
+              "teamId": 7002,
+              "teamTricode": "BBB",
+              "personId": 9011,
+              "playerName": "Fictional 9011",
+              "actionType": "Missed Shot",
+              "description": "Synthetic missed shot; same action number, distinct event ID",
+              "isFieldGoal": 1,
+              "shotResult": "Missed",
+              "shotValue": 3,
+              "scoreHome": "",
+              "scoreAway": "",
+              "location": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "gleague-leaguestandingsv3",
+      "scenario": "rates",
+      "path": "/stats/leaguestandingsv3",
+      "parameters": {
+        "LeagueID": "20",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "Standings",
+            "headers": [
+              "TeamID",
+              "TeamCity",
+              "TeamName",
+              "Conference",
+              "PlayoffRank",
+              "WINS",
+              "LOSSES",
+              "WinPCT",
+              "PointsPG"
+            ],
+            "rowSet": [
+              [
+                7001,
+                "Example",
+                "Alpha",
+                "Example",
+                1,
+                8,
+                2,
+                0.8,
+                102
+              ],
+              [
+                7002,
+                "Example",
+                "Birch",
+                "Example",
+                2,
+                6,
+                4,
+                0.6,
+                106
+              ],
+              [
+                7003,
+                "Example",
+                "Cedar",
+                "Example",
+                3,
+                4,
+                6,
+                0.4,
+                100
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gleague-leaguedashteamstats-Base",
+      "scenario": "rates",
+      "path": "/stats/leaguedashteamstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "20",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Base"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashTeamStats",
+            "headers": [
+              "TEAM_ID",
+              "TEAM_NAME",
+              "GP",
+              "W",
+              "L",
+              "PTS",
+              "FGM",
+              "FGA",
+              "FG_PCT",
+              "FG3M",
+              "FG3A",
+              "FG3_PCT",
+              "FTM",
+              "FTA"
+            ],
+            "rowSet": [
+              [
+                7001,
+                "Alpha",
+                10,
+                8,
+                2,
+                102,
+                38,
+                80,
+                0.475,
+                10,
+                28,
+                0.35714285714285715,
+                16,
+                20
+              ],
+              [
+                7002,
+                "Birch",
+                10,
+                6,
+                4,
+                106,
+                38,
+                80,
+                0.475,
+                10,
+                28,
+                0.35714285714285715,
+                20,
+                24
+              ],
+              [
+                7003,
+                "Cedar",
+                10,
+                4,
+                6,
+                100,
+                38,
+                80,
+                0.475,
+                10,
+                28,
+                0.35714285714285715,
+                14,
+                18
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gleague-leaguedashteamstats-Advanced",
+      "scenario": "rates",
+      "path": "/stats/leaguedashteamstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "20",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Advanced"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashTeamStats",
+            "headers": [
+              "TEAM_ID",
+              "TEAM_NAME",
+              "GP",
+              "W",
+              "L",
+              "OFF_RATING",
+              "DEF_RATING",
+              "NET_RATING",
+              "PACE",
+              "TS_PCT"
+            ],
+            "rowSet": [
+              [
+                7001,
+                "Alpha",
+                10,
+                8,
+                2,
+                109,
+                110,
+                -1,
+                99,
+                0.55
+              ],
+              [
+                7002,
+                "Birch",
+                10,
+                6,
+                4,
+                112,
+                110,
+                2,
+                100,
+                0.5700000000000001
+              ],
+              [
+                7003,
+                "Cedar",
+                10,
+                4,
+                6,
+                115,
+                110,
+                5,
+                101,
+                0.5900000000000001
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gleague-leaguedashplayerstats-Base",
+      "scenario": "rates",
+      "path": "/stats/leaguedashplayerstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "20",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Base"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashPlayerStats",
+            "headers": [
+              "PLAYER_ID",
+              "PLAYER_NAME",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION",
+              "GP",
+              "PTS",
+              "MIN",
+              "TEAM_COUNT"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                7001,
+                "AAA",
+                4,
+                32,
+                30,
+                1
+              ],
+              [
+                9002,
+                "Bea North",
+                7002,
+                "BBB",
+                10,
+                26,
+                30,
+                1
+              ],
+              [
+                9003,
+                "Cam Drift",
+                7003,
+                "CCC",
+                10,
+                22,
+                30,
+                1
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gleague-leaguedashplayerstats-Advanced",
+      "scenario": "rates",
+      "path": "/stats/leaguedashplayerstats",
+      "parameters": {
+        "College": "",
+        "Conference": "",
+        "Country": "",
+        "DateFrom": "",
+        "DateTo": "",
+        "Division": "",
+        "DraftPick": "",
+        "DraftYear": "",
+        "GameScope": "",
+        "GameSegment": "",
+        "Height": "",
+        "Location": "",
+        "Outcome": "",
+        "PlayerExperience": "",
+        "PlayerPosition": "",
+        "SeasonSegment": "",
+        "ShotClockRange": "",
+        "StarterBench": "",
+        "VsConference": "",
+        "VsDivision": "",
+        "Weight": "",
+        "LastNGames": "0",
+        "Month": "0",
+        "OpponentTeamID": "0",
+        "PORound": "0",
+        "PaceAdjust": "N",
+        "Period": "0",
+        "PlusMinus": "N",
+        "Rank": "N",
+        "TeamID": "0",
+        "TwoWay": "0",
+        "LeagueID": "20",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "MeasureType": "Advanced"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueDashPlayerStats",
+            "headers": [
+              "PLAYER_ID",
+              "PLAYER_NAME",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION",
+              "GP",
+              "TS_PCT",
+              "USG_PCT"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                7001,
+                "AAA",
+                4,
+                0.65,
+                0.35
+              ],
+              [
+                9002,
+                "Bea North",
+                7002,
+                "BBB",
+                10,
+                0.55,
+                0.25
+              ],
+              [
+                9003,
+                "Cam Drift",
+                7003,
+                "CCC",
+                10,
+                0.6,
+                0.2
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gleague-leagueleaders",
+      "scenario": "rates",
+      "path": "/stats/leagueleaders",
+      "parameters": {
+        "LeagueID": "20",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "PerMode": "PerGame",
+        "Scope": "S",
+        "StatCategory": "PTS"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "LeagueLeaders",
+            "headers": [
+              "PLAYER_ID",
+              "PLAYER",
+              "TEAM_ID",
+              "TEAM",
+              "GP",
+              "PTS",
+              "RANK"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                7001,
+                "AAA",
+                4,
+                32,
+                1
+              ],
+              [
+                9002,
+                "Bea North",
+                7002,
+                "BBB",
+                10,
+                26,
+                2
+              ],
+              [
+                9003,
+                "Cam Drift",
+                7003,
+                "CCC",
+                10,
+                22,
+                3
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gleague-commonallplayers",
+      "scenario": "career",
+      "path": "/stats/commonallplayers",
+      "parameters": {
+        "LeagueID": "20",
+        "Season": "CURRENT",
+        "IsOnlyCurrentSeason": "0"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "CommonAllPlayers",
+            "headers": [
+              "PERSON_ID",
+              "DISPLAY_FIRST_LAST",
+              "ROSTERSTATUS",
+              "FROM_YEAR",
+              "TO_YEAR",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "Ada Vale",
+                1,
+                2024,
+                2025,
+                7001,
+                "AAA"
+              ],
+              [
+                9002,
+                "Bea North",
+                1,
+                2024,
+                2025,
+                7001,
+                "AAA"
+              ],
+              [
+                9003,
+                "Cam Drift",
+                0,
+                2024,
+                2025,
+                7003,
+                "CCC"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gleague-commonteamroster",
+      "scenario": "career",
+      "path": "/stats/commonteamroster",
+      "parameters": {
+        "TeamID": "7001",
+        "LeagueID": "20",
+        "Season": "2025-26"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "CommonTeamRoster",
+            "headers": [
+              "TeamID",
+              "PLAYER_ID",
+              "PLAYER",
+              "POSITION",
+              "HEIGHT",
+              "EXP"
+            ],
+            "rowSet": [
+              [
+                7001,
+                9001,
+                "Ada Vale",
+                "G",
+                "6-0",
+                "1"
+              ],
+              [
+                7001,
+                9002,
+                "Bea North",
+                "G",
+                "6-0",
+                "1"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gleague-playercareerstats",
+      "scenario": "career",
+      "path": "/stats/playercareerstats",
+      "parameters": {
+        "PlayerID": "9001",
+        "PerMode": "Totals",
+        "LeagueID": "20"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "SeasonTotalsRegularSeason",
+            "headers": [
+              "PLAYER_ID",
+              "SEASON_ID",
+              "TEAM_ID",
+              "TEAM_ABBREVIATION",
+              "GP",
+              "PTS"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "2024-25",
+                7001,
+                "AAA",
+                3,
+                60
+              ],
+              [
+                9001,
+                "2025-26",
+                7001,
+                "AAA",
+                2,
+                40
+              ],
+              [
+                9001,
+                "2025-26",
+                7002,
+                "BBB",
+                3,
+                60
+              ],
+              [
+                9001,
+                "2025-26",
+                0,
+                "TOT",
+                5,
+                100
+              ]
+            ]
+          },
+          {
+            "name": "CareerTotalsRegularSeason",
+            "headers": [
+              "PLAYER_ID",
+              "GP",
+              "PTS"
+            ],
+            "rowSet": [
+              [
+                9001,
+                8,
+                160
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gleague-playergamelog",
+      "scenario": "career",
+      "path": "/stats/playergamelog",
+      "parameters": {
+        "PlayerID": "9001",
+        "Season": "2025-26",
+        "SeasonType": "Regular Season",
+        "LeagueID": "20"
+      },
+      "body": {
+        "resultSets": [
+          {
+            "name": "PlayerGameLog",
+            "headers": [
+              "Player_ID",
+              "Game_ID",
+              "GAME_DATE",
+              "MATCHUP",
+              "WL",
+              "PTS"
+            ],
+            "rowSet": [
+              [
+                9001,
+                "2022500001",
+                "2025-10-21",
+                "AAA vs. CCC",
+                "W",
+                10
+              ],
+              [
+                9001,
+                "2022500002",
+                "2025-10-22",
+                "AAA vs. CCC",
+                "W",
+                30
+              ],
+              [
+                9001,
+                "2022500003",
+                "2025-10-23",
+                "BBB vs. CCC",
+                "W",
+                20
+              ],
+              [
+                9001,
+                "2022500004",
+                "2025-10-24",
+                "BBB vs. CCC",
+                "W",
+                25
+              ],
+              [
+                9001,
+                "2022500005",
+                "2025-10-25",
+                "BBB vs. CCC",
+                "W",
+                15
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
