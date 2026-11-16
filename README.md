@@ -14,7 +14,7 @@
 <p align="center">
   <a href="https://github.com/Query-farm/vgi-nba/actions/workflows/ci.yml"><img src="https://github.com/Query-farm/vgi-nba/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
-  <img src="https://img.shields.io/badge/python-3.13%2B-3776AB.svg" alt="Python 3.13+">
+  <img src="https://img.shields.io/badge/python-3.14%2B-3776AB.svg" alt="Python 3.14+">
   <a href="https://query.farm/vgi/"><img src="https://img.shields.io/badge/VGI-read--only-6f42c1.svg" alt="Read-only VGI worker"></a>
 </p>
 

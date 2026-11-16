@@ -1,6 +1,6 @@
 # /// script
-# requires-python = ">=3.13"
-# dependencies = ["vgi-python[http]>=0.52.0,<0.53", "httpx>=0.27,<1", "pyarrow>=18,<26"]
+# requires-python = ">=3.14"
+# dependencies = ["vgi-python[http]>=0.52.2,<0.53", "httpx>=0.27,<1", "pyarrow>=18,<26"]
 # ///
 """Stdio entry point for attaching the NBA-family VGI catalog."""
 

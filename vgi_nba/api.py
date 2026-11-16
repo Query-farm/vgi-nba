@@ -188,7 +188,7 @@ def _retry_delay(response: httpx.Response | None, attempt: int) -> float:
                     if retry_at.tzinfo is None:
                         retry_at = retry_at.replace(tzinfo=UTC)
                     delay = (retry_at - datetime.now(UTC)).total_seconds()
-                except (TypeError, ValueError, OverflowError):
+                except TypeError, ValueError, OverflowError:
                     delay = -1.0
             if delay >= 0:
                 return min(delay, MAX_RETRY_DELAY)
