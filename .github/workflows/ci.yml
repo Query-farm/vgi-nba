@@ -53,6 +53,35 @@ jobs:
             --output-file "${RUNNER_TEMP}/requirements-audit.txt" > /dev/null
           uvx --python 3.14 pip-audit --requirement "${RUNNER_TEMP}/requirements-audit.txt"
 
+  integration:
+    name: SQL tests (${{ matrix.os }}, ${{ matrix.transport }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        transport: [stdio, launch, http]
+    env:
+      HAYBARN_VERSION: "2.0.0rc11"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.14"
+          enable-cache: true
+      - name: Build the worker
+        run: uv sync --locked --no-sources
+      - name: Install the SQL test runner
+        run: |
+          uv venv .tools
+          uv pip install -p .tools "haybarn-unittest==${HAYBARN_VERSION}"
+      # The recorded-fixture upstream (test/mock_api/server.py) keeps this hermetic.
+      - name: Run test/sql over ${{ matrix.transport }}
+        run: |
+          WORKER="$PWD/.venv/bin/vgi-nba" HAYBARN_UNITTEST="$PWD/.tools/bin/haybarn-unittest" \
+            TRANSPORT=${{ matrix.transport }} PYTHON="$PWD/.venv/bin/python" ci/run-integration.sh
+
   catalog:
     name: Catalog metadata (vgi-lint, structural)
     runs-on: ubuntu-latest

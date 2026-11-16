@@ -1,0 +1,151 @@
+# name: test/sql/nba.test
+# description: Hermetic end-to-end coverage: every current table in all three league schemas,
+#   served from the recorded fixtures by test/mock_api/server.py (see ci/run-integration.sh).
+# group: [nba]
+
+require vgi
+
+require-env VGI_NBA_WORKER
+
+require-env NBA_STATS_BASE_URL
+
+statement ok
+ATTACH 'nba' (TYPE vgi, LOCATION '{VGI_NBA_WORKER}');
+
+# Every current table returns rows.
+
+query I
+SELECT count(*) > 0 FROM nba.nba.current_standings;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.nba.current_scoreboard;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.nba.current_schedule;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.nba.current_teams;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.nba.current_players;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.nba.current_player_stats;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.nba.current_team_stats;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.nba.franchise_history;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.wnba.current_standings;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.wnba.current_scoreboard;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.wnba.current_schedule;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.wnba.current_teams;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.wnba.current_players;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.wnba.current_player_stats;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.wnba.current_team_stats;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.wnba.franchise_history;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.gleague.current_standings;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.gleague.current_scoreboard;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.gleague.current_teams;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.gleague.current_players;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.gleague.current_player_stats;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.gleague.current_team_stats;
+----
+true
+
+query I
+SELECT count(*) > 0 FROM nba.gleague.franchise_history;
+----
+true
+
+query I
+SELECT count(*) FROM nba.nba.current_teams;
+----
+3
+
+query I
+SELECT count(*) FROM nba.wnba.current_players;
+----
+3
+
+# The trimmed fixtures keep 73 player points and 7 play-by-play actions.
+query I
+SELECT sum(points) FROM nba.nba.box_score('0022600201');
+----
+73
+
+query I
+SELECT count(*) FROM nba.nba.play_by_play('0022600201');
+----
+7
