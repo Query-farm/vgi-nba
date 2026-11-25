@@ -1,3 +1,3 @@
 """NBA, WNBA, and NBA G League standings, scores, and statistics for VGI."""
 
-__version__ = "0.2.2"
+__version__ = "0.3.0"

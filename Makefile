@@ -1,6 +1,6 @@
 # Common tasks. `make help` lists them. Requires uv (https://docs.astral.sh/uv/).
 
-HAYBARN_VERSION ?= 2.0.0rc11
+HAYBARN_VERSION ?= 2.0.1rc3
 WORKER          := $(CURDIR)/.venv/bin/vgi-nba
 PYTHON          := $(CURDIR)/.venv/bin/python
 TOOLS           := $(CURDIR)/.tools

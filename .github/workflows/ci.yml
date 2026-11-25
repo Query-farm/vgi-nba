@@ -63,7 +63,7 @@ jobs:
         os: [ubuntu-latest]
         transport: [stdio, launch, http]
     env:
-      HAYBARN_VERSION: "2.0.0rc11"
+      HAYBARN_VERSION: "2.0.1rc3"
     steps:
       - uses: actions/checkout@v5
       - uses: astral-sh/setup-uv@v6
@@ -98,7 +98,7 @@ jobs:
       # serialized live schedule so pull requests do not consume NBA Stats API capacity.
       - name: vgi-lint (structural)
         run: >
-          uvx --no-sources --from vgi-lint-check==2.5.0 vgi-lint lint "uv run --no-sources nba_worker.py"
+          uvx --no-sources --prerelease=allow --from 'vgi-lint-check>=2.9.0,<3' vgi-lint lint "uv run --no-sources nba_worker.py"
           --no-execute --no-check-links --audit-waivers --fail-on warning
 
   container:

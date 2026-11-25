@@ -20,11 +20,11 @@ WORKDIR /app
 
 COPY pyproject.toml README.md LICENSE ./
 COPY vgi_nba ./vgi_nba
-RUN python -m pip install --no-cache-dir .
+RUN python -m pip install --no-cache-dir '.[serve]'
 
 USER vgi
 EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=8s --retries=3 \
-    CMD ["python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2).read()"]
+    CMD python -c "import os,urllib.request;urllib.request.urlopen(urllib.request.Request(f'http://127.0.0.1:{os.environ.get(\"PORT\",\"8000\")}/health',method='HEAD'),timeout=2)"
 
-CMD ["vgi-nba-http", "--host", "0.0.0.0", "--port", "8000", "--log-format", "json"]
+CMD ["sh", "-c", "exec vgi-nba-http --host 0.0.0.0 --port ${PORT:-8000} --log-format json"]

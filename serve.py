@@ -1,6 +1,6 @@
 # /// script
 # requires-python = ">=3.14"
-# dependencies = ["vgi-python[http]>=0.52.2,<0.53", "httpx>=0.27,<1", "pyarrow>=18,<26"]
+# dependencies = ["vgi-python[http]>=0.55.1,<0.56", "httpx>=0.27,<1", "pyarrow>=18,<26"]
 # ///
 """HTTP entry point for the NBA-family VGI worker."""
 
